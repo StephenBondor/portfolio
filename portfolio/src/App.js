@@ -1,28 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import aweshit from './aw-shit-here-we-go-again-template.png';
 
-import './App.css';
+//-- Components --//
+import Header from './Components/Header';
+import Body from './Components/Body';
+import Footer from './Components/Footer';
 
-function App() {
+//-- Styles --//
+import styled from 'styled-components';
+import {GlobalStyle} from './styles/GlobalStyles';
+
+const AppContainer = styled.div`
+	margin: 0px auto;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	/* border: 1px solid red; */
+`;
+
+const App = () => {
 	return (
-		<div className='App'>
-			<header className='App-header'>
-				<img src={logo} className='App-logo' alt='logo' />
-				<img src={aweshit} alt='awe shit' className='Awe-shit' />
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a
-					className='App-link'
-					href='https://reactjs.org'
-					target='_blank'
-					rel='noopener noreferrer'>
-					Learn React
-				</a>
-			</header>
-		</div>
+		<>
+			<GlobalStyle />
+			<AppContainer>
+				<Header />
+				<Body />
+				<Footer />
+			</AppContainer>
+		</>
 	);
-}
+};
 
 export default App;
