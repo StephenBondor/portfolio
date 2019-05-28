@@ -1,9 +1,9 @@
 const palette = {
-	red: '#c10000',
+	activeOrange: '#EF8D34',
 	blackHole: '#000000',
 	jetBlack: '#111111',
 	black: '#232323',
-	print: '#3a3a3a',
+	print: '#363636',
 	gray: '#828282',
 	darkGray: '#9D9D9D',
 	lightGray: '#c1c1c1',
@@ -19,7 +19,7 @@ export const colors = {
 	textOnBG: palette.jetBlack,
 	textOnFG: palette.pleasantWhite,
 	hoverColor: palette.grey,
-	active: palette.lightGray,
+	active: palette.activeOrange,
 	inactive: palette.darkGray,
 	warning: palette.gray,
 	alert: palette.print

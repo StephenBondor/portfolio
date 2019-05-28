@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 //-- Components --//
 import Header from './Components/Header';
@@ -20,13 +20,23 @@ const AppContainer = styled.div`
 `;
 
 const App = () => {
+	const [display, setDisplay] = useState(false);
+
+	useEffect(() => {
+		setTimeout(() => setDisplay(true), 10000);
+	});
+
 	return (
 		<>
 			<GlobalStyle />
 			<AppContainer>
 				<Header />
-				<Body />
-				<Footer />
+				{display && (
+					<>
+						<Body />
+						<Footer />
+					</>
+				)}
 			</AppContainer>
 		</>
 	);

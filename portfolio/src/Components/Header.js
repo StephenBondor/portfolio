@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 //-- Components --//
 
@@ -7,28 +7,25 @@ import styled from 'styled-components';
 import {colors} from '../styles/Colors';
 import mediaQueryFor from '../styles/MediaQueries';
 import {TerminalFont} from '../styles/Font';
+import {KeyboardArrowDown} from 'styled-icons/material/KeyboardArrowDown';
 
 //-- Assets --//
 
 const StyledHeader = styled.header`
 	width: 100vw;
 	min-height: 100vh;
-
 	padding: 0 40px;
-
 	background: ${colors.foreground}
-
 	display: flex;
 	flex-direction: column;
-	justify-content: left;
+	justify-content: flex-end;
 	align-items: left;
-
 	font-family: ${TerminalFont};
 	color: ${colors.textOnFG};
 	line-height: 1.8rem;
 
-
-	/* border: 1px solid blue; */
+	position: ${props => props.position};
+	bottom: 0;
 `;
 
 const Warning = styled.span`
@@ -52,8 +49,8 @@ const B = styled.span`
 // Doing all this animation was impossible without: https://css-tricks.com/almanac/properties/a/animation/
 const Typing = styled.div`
 	overflow: hidden;
-	width: 17ch;
-	border-right: 1ch solid orange;
+	width: 18ch;
+	border-right: 1ch solid ${colors.active};
 	white-space: nowrap;
 	animation: typing 1.5s steps(16, end),
 		blink-caret 1s 2.5s step-end forwards 1;
@@ -63,7 +60,7 @@ const Typing = styled.div`
 			width: 0;
 		}
 		to {
-			width: 17ch;
+			width: 18ch;
 		}
 	}
 	@keyframes blink-caret {
@@ -72,19 +69,19 @@ const Typing = styled.div`
 			border-color: transparent;
 		}
 		50% {
-			border-color: orange;
+			border-color: ${colors.active};
 		}
 	}
 `;
 
 const Booting = styled.div`
 	overflow: hidden;
-	height: 0px;
-	animation: booting 0.75s steps(37, end) 4s forwards;
+	height: 0;
+	animation: booting 0.5s steps(37, end) 4s forwards;
 
 	@keyframes booting {
 		from {
-			height: 0px;
+			height: 0;
 		}
 		to {
 			height: 100%;
@@ -102,14 +99,14 @@ const StillBootingBoarder = styled.div`
 			border-bottom: ${colors.foreground};
 		}
 		to {
-			border-bottom: 1px solid orange;
+			border-bottom: 1px solid ${colors.active};
 		}
 	}
 `;
 
 const StillBooting = styled.div`
 	overflow: hidden;
-	color: orange;
+	color: ${colors.active};
 	width: 0px;
 	animation: stillbooting 5s steps(20, end) 4s forwards;
 
@@ -138,12 +135,22 @@ const Booted = styled.div`
 	}
 `;
 
+const Pointer = styled(KeyboardArrowDown)`
+	font_size: 2rem;
+`;
+
 const Header = () => {
+	const [position, setPosition] = useState('fixed');
+
+	useEffect(() => {
+		setTimeout(() => setPosition('static'), 10000);
+	});
+
 	return (
-		<StyledHeader>
+		<StyledHeader position={position}>
 			<P>
-				<Typing>$init-new-dev -y </Typing>
-				<Booting lines={37}>
+				<Typing>~$init-new-dev -y </Typing>
+				<Booting>
 					<B>make developer v1.13.0</B> <br />
 					<Warning>
 						warning: dangerously effective developer!{' '}
@@ -155,12 +162,13 @@ const Header = () => {
 						I can learn it".
 					</Alert>{' '}
 					<br />
-					<Alert>question</Alert> name (stephen bondor): <br />
-					<Alert>question</Alert> available when (now): <br />
-					<Alert>question</Alert> stack (full-stack): <br />
-					<Alert>question</Alert> emphasis (refactoring,
-					communicative, team-player): <br />
-					<Alert>question</Alert> technologies (<br />
+					<Warning>question</Warning> name (stephen bondor): <br />
+					<Warning>question</Warning> available when (now): <br />
+					<Warning>question</Warning> stack (full-stack): <br />
+					<Warning>question</Warning> skills (communication,
+					leadership, team-work, planning, coordination,
+					hecking-cool): <br />
+					<Warning>question</Warning> technologies (<br />
 					{'	'}HTML, <br />
 					{'	'}CSS, <br />
 					{'	'}Animation, <br />
@@ -181,7 +189,7 @@ const Header = () => {
 					{'	'}JWT, <br />
 					{'	'}RESTful API, <br />
 					{'	'}Python, <br />
-					{'	'}Github): <br /> <br />
+					{'	'}Git): <br /> <br />
 					<Warning>compiling…</Warning> <br /> <br />
 				</Booting>
 				<StillBootingBoarder>
@@ -190,13 +198,12 @@ const Header = () => {
 				<br />
 				<br />
 				<Booted>
-					<Warning>
-						<B>Human Developer Compiled Successfully!</B>
-					</Warning>
+					<B>Human Developer Compiled Successfully!</B>
 					<br /> <br /> <br />
 					<Alert>if only finding a developer was this easy...</Alert>
-					<br /> <br />
+					<br /> <br /> <br /> <br />
 				</Booted>
+				<Pointer />
 			</P>
 		</StyledHeader>
 	);

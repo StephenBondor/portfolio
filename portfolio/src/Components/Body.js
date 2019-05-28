@@ -16,7 +16,7 @@ const StyledBody = styled.div`
 	align-items: center;
 	min-height: 100vh;
 	width: 100vw;
-	border: 1px solid blue;
+	/* border: 1px solid blue; */
 `;
 
 const styledIntro = styled.div`
@@ -25,7 +25,7 @@ const styledIntro = styled.div`
 	line-height: 6.5rem;
 	display: inline;
 	white-space: pre-wrap;
-	border: 1px solid red;
+	/* border: 1px solid red; */
 `;
 
 const Small = styled.span`
@@ -44,9 +44,7 @@ const Body = () => {
 				{'			'}
 				<Small>(Awesome name, right?)</Small>
 				<br />
-				BULUE
 			</styledIntro>
-			BLUE
 		</StyledBody>
 	);
 };
