@@ -18,7 +18,7 @@ const StyledFooter = styled.div`
 	height: ${(1 - 0.618) * 100}vh;
 
 	background: ${colors.foreground};
-	border: 1px solid green;
+	/* border: 1px solid green; */
 `;
 
 const Footer = () => {
