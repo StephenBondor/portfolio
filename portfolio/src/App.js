@@ -4,6 +4,7 @@ import React, {useState, useEffect} from 'react';
 import Header from './Components/Header';
 import Body from './Components/Body';
 import Footer from './Components/Footer';
+import Portfolio from './Components/Portfolio';
 
 //-- Styles --//
 import styled from 'styled-components';
@@ -16,27 +17,27 @@ const AppContainer = styled.div`
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
-	/* border: 1px solid red; */
 `;
 
 const App = () => {
 	const [display, setDisplay] = useState(false);
 
 	useEffect(() => {
-		setTimeout(() => setDisplay(true), 10000);
+		setTimeout(() => setDisplay(true), 11000);
 	});
 
 	return (
 		<>
 			<GlobalStyle />
 			<AppContainer>
-				<Header />
-				{display && (
-					<>
-						<Body />
-						<Footer />
-					</>
-				)}
+				{/* <Header />
+				{display && ( */}
+				<>
+					<Body />
+					<Portfolio />
+					<Footer />
+				</>
+				{/* )} */}
 			</AppContainer>
 		</>
 	);

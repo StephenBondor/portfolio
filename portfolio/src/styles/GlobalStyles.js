@@ -9,20 +9,21 @@ export const GlobalStyle = createGlobalStyle`
 	* {
 		box-sizing: border-box;
 	}
-	
+
 	html {
 		font-size: 62.5%;
 		line-height: 190%;
+		scroll-behavior: smooth;
 	}
 
 	body {
 		font-size: 1.6rem;
 		font-family: ${Font};
 		background-color: ${colors.background};
-        line-height: 170%; 
-        color: ${colors.text}
+        line-height: 170%;
+        color: ${colors.textOnBG}
     }
-    
+
     button {
         font-size: 1.6rem;
         font: ${Font};
@@ -30,7 +31,7 @@ export const GlobalStyle = createGlobalStyle`
         border: none;
         text-decoration: underline;
         transition: all .2s;
-        color: ${colors.text};
+
         &:hover{
             color: ${colors.hoverColor};
         }
@@ -38,7 +39,7 @@ export const GlobalStyle = createGlobalStyle`
             color: ${colors.active};
         }
     }
-	
+
 	h1{
 		font-weight: bold;
 	}
@@ -46,13 +47,13 @@ export const GlobalStyle = createGlobalStyle`
 	h2 {
 		font-weight: bold;
 		font-size: 2rem;
-		color: ${colors.text};
+		color: ${colors.textOnBG};
 	}
 
 	h3 {
 		font-weight: bold;
 		font-size: 1.6rem;
-		color: ${colors.text};
+		color: ${colors.textOnBG};
 	}
 
 	p {
@@ -61,5 +62,18 @@ export const GlobalStyle = createGlobalStyle`
 		hyphens: auto;
 		text-align: justify;
 		text-indent: 2rem;
+	}
+
+	a {
+
+		&:link{
+			color: ${colors.active};
+		}
+		&:visited{
+			color: ${colors.textOnBG};
+		}
+		&:hover{
+            color: ${colors.hoverColor};
+        }
 	}
 `;

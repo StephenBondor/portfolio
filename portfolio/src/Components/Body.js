@@ -8,43 +8,77 @@ import {colors} from '../styles/Colors';
 import mediaQueryFor from '../styles/MediaQueries';
 
 //-- Assets --//
+import {KeyboardArrowDown} from 'styled-icons/material/KeyboardArrowDown';
 
 const StyledBody = styled.div`
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
-	min-height: 100vh;
+	height: 100vh;
 	width: 100vw;
-	/* border: 1px solid blue; */
 `;
 
-const styledIntro = styled.div`
-	padding: 200px;
+const StyledIntro = styled.div`
 	font-size: 4rem;
 	line-height: 6.5rem;
 	display: inline;
 	white-space: pre-wrap;
-	/* border: 1px solid red; */
+`;
+
+const Bold = styled.span`
+	font-weight: bold;
+`;
+
+const Pointer = styled.div`
+	margin: 0 auto;
+	height: 3rem;
+	width: 26px;
+	svg {
+		fill: ${colors.text};
+	}
+	&:hover {
+		cursor: pointer;
+	}
+`;
+
+const Medium = styled.span`
+	font-size: 3rem;
 `;
 
 const Small = styled.span`
-	font-size: 2rem;
+	font-size: 1.7rem;
 `;
 
 const Body = () => {
 	return (
-		<StyledBody thing={9}>
-			hello
-			<styledIntro>
-				Hi, <br />
-				{'	'}I'm Bondor, <br />
-				{'		'}a full-stack developer <br /> <br /> <br />
-				Nice to meet you! <br />
+		<StyledBody>
+			{/* empty div to target the Flex box correctly */}
+			<div />
+			<StyledIntro>
+				Oh Hai! <br />
+				{'	'}
+				<Bold>I'm Bondor </Bold>
+				<br />
+				{'		'}a full-stack developer <br /> <br />
+				<Medium>
+					{'	'}Nice to meet you! <br />
+				</Medium>
 				{'			'}
 				<Small>(Awesome name, right?)</Small>
-				<br />
-			</styledIntro>
+			</StyledIntro>
+			<Pointer
+				onClick={() =>
+					window.scrollTo({
+						top: window.innerHeight,
+						left: 0,
+						behavior: 'smooth'
+					})
+				}>
+				<svg>
+					<path d='M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z' />
+				</svg>
+			</Pointer>
 		</StyledBody>
 	);
 };

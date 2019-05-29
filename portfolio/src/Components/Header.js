@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 
 //-- Components --//
 
@@ -7,7 +7,6 @@ import styled from 'styled-components';
 import {colors} from '../styles/Colors';
 import mediaQueryFor from '../styles/MediaQueries';
 import {TerminalFont} from '../styles/Font';
-import {KeyboardArrowDown} from 'styled-icons/material/KeyboardArrowDown';
 
 //-- Assets --//
 
@@ -15,7 +14,7 @@ const StyledHeader = styled.header`
 	width: 100vw;
 	min-height: 100vh;
 	padding: 0 40px;
-	background: ${colors.foreground}
+	background: ${colors.foreground};
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
@@ -23,7 +22,6 @@ const StyledHeader = styled.header`
 	font-family: ${TerminalFont};
 	color: ${colors.textOnFG};
 	line-height: 1.8rem;
-
 	position: ${props => props.position};
 	bottom: 0;
 `;
@@ -77,14 +75,14 @@ const Typing = styled.div`
 const Booting = styled.div`
 	overflow: hidden;
 	height: 0;
-	animation: booting 0.5s steps(37, end) 4s forwards;
+	animation: booting 0.25s steps(37, end) 4s forwards;
 
 	@keyframes booting {
 		from {
 			height: 0;
 		}
 		to {
-			height: 100%;
+			height: auto;
 		}
 	}
 `;
@@ -135,15 +133,51 @@ const Booted = styled.div`
 	}
 `;
 
-const Pointer = styled(KeyboardArrowDown)`
-	font_size: 2rem;
+const Pointer = styled.div`
+	margin: 0 auto;
+	height: 3rem;
+	opacity: 0;
+	width: 26px;
+	svg {
+		fill: ${colors.textOnFG};
+	}
+	&:hover {
+		cursor: pointer;
+	}
+
+	animation: arrowbooted 0.75s 11s forwards;
+
+	@keyframes arrowbooted {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 100;
+		}
+	}
 `;
 
 const Header = () => {
 	const [position, setPosition] = useState('fixed');
+	const [updated, setUpdated] = useState(false);
+	const animationEndRef = useRef(null);
+
+	const scrollToBottom = () => {
+		animationEndRef.current.scrollIntoView({
+			behavior: 'smooth',
+			block: 'end'
+		});
+	};
 
 	useEffect(() => {
-		setTimeout(() => setPosition('static'), 10000);
+		if (!updated) {
+			setTimeout(() => {
+				scrollToBottom();
+				setPosition('static');
+				scrollToBottom();
+			}, 10000);
+			setUpdated(true);
+		}
 	});
 
 	return (
@@ -203,8 +237,20 @@ const Header = () => {
 					<Alert>if only finding a developer was this easy...</Alert>
 					<br /> <br /> <br /> <br />
 				</Booted>
-				<Pointer />
 			</P>
+			<Pointer
+				ref={animationEndRef}
+				onClick={() =>
+					window.scrollTo({
+						top: window.innerHeight,
+						left: 0,
+						behavior: 'smooth'
+					})
+				}>
+				<svg>
+					<path d='M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z' />
+				</svg>
+			</Pointer>
 		</StyledHeader>
 	);
 };

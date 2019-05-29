@@ -18,7 +18,7 @@ export const colors = {
 	foreground: palette.jetBlack,
 	textOnBG: palette.jetBlack,
 	textOnFG: palette.pleasantWhite,
-	hoverColor: palette.grey,
+	hoverColor: palette.gray,
 	active: palette.activeOrange,
 	inactive: palette.darkGray,
 	warning: palette.gray,
