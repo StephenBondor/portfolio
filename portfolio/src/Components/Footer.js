@@ -5,7 +5,7 @@ import React from 'react';
 //-- Styles --//
 import styled from 'styled-components';
 import {colors} from '../styles/Colors';
-import mediaQueryFor from '../styles/MediaQueries';
+// import mediaQueryFor from '../styles/MediaQueries';
 
 //-- Assets --//
 

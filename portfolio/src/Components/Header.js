@@ -1,11 +1,11 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useRef, useLayoutEffect} from 'react';
 
 //-- Components --//
 
 //-- Styles --//
 import styled from 'styled-components';
 import {colors} from '../styles/Colors';
-import mediaQueryFor from '../styles/MediaQueries';
+// import mediaQueryFor from '../styles/MediaQueries';
 import {TerminalFont} from '../styles/Font';
 
 //-- Assets --//
@@ -15,15 +15,18 @@ const StyledHeader = styled.header`
 	min-height: 100vh;
 	padding: 0 40px;
 	background: ${colors.foreground};
+
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
 	align-items: left;
+
+	position: ${props => props.position};
+	bottom: 0;
+
 	font-family: ${TerminalFont};
 	color: ${colors.textOnFG};
 	line-height: 1.8rem;
-	position: ${props => props.position};
-	bottom: 0;
 `;
 
 const Warning = styled.span`
@@ -169,7 +172,7 @@ const Header = () => {
 		});
 	};
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		if (!updated) {
 			setTimeout(() => {
 				scrollToBottom();
@@ -178,7 +181,7 @@ const Header = () => {
 			}, 10000);
 			setUpdated(true);
 		}
-	});
+	}, [updated]);
 
 	return (
 		<StyledHeader position={position}>

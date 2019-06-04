@@ -5,10 +5,9 @@ import React from 'react';
 //-- Styles --//
 import styled from 'styled-components';
 import {colors} from '../styles/Colors';
-import mediaQueryFor from '../styles/MediaQueries';
+// import mediaQueryFor from '../styles/MediaQueries';
 
 //-- Assets --//
-import {KeyboardArrowDown} from 'styled-icons/material/KeyboardArrowDown';
 
 const StyledBody = styled.div`
 	display: flex;
@@ -17,6 +16,7 @@ const StyledBody = styled.div`
 	align-items: center;
 	height: 100vh;
 	width: 100vw;
+	padding-right: 40px;
 `;
 
 const StyledIntro = styled.div`
@@ -70,7 +70,7 @@ const Body = () => {
 			<Pointer
 				onClick={() =>
 					window.scrollTo({
-						top: window.innerHeight,
+						top: window.innerHeight * 2 - 30,
 						left: 0,
 						behavior: 'smooth'
 					})
