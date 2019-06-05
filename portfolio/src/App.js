@@ -20,66 +20,6 @@ const AppContainer = styled.div`
 	width: 100%;
 `;
 
-const textData = [
-	{
-		start: 'self',
-		duration: '30vh',
-		easing: 'easeInOutSine',
-		properties: [
-			{
-				startValue: 90,
-				endValue: 25,
-				unit: 'vh',
-				property: 'translateY'
-			}
-		]
-	},
-	{
-		start: 'self',
-		startOffset: '40vh',
-		duration: '30vh',
-		easing: 'easeInOutSine',
-		properties: [
-			{
-				startValue: 25,
-				endValue: 0,
-				unit: 'vh',
-				property: 'translateY'
-			}
-		]
-	}
-];
-
-const portfolioData = [
-	{
-		start: 'self',
-		duration: '15vh',
-		easing: 'easeInOutSine',
-		properties: [
-			{
-				startValue: 50,
-				endValue: 25,
-				unit: 'vh',
-				property: 'translateY'
-			}
-		]
-	},
-	{
-		start: 'self',
-		startOffset: '0vh',
-		duration: '15vh',
-		easing: 'easeInOutSine',
-		properties: [
-			{
-				startValue: 25,
-				endValue: 0,
-				unit: 'vh',
-				property: 'translateY'
-			}
-		]
-	}
-];
-
 const Sidewaze = styled.div`
 	position: absolute;
 	transform: rotate(-90deg);
@@ -136,22 +76,14 @@ const App = () => {
 				<Header />
 				{display && (
 					<>
-						<Plx
-							parallaxData={textData}
-							animateWhenNotInViewport={true}>
-							<Body />
-						</Plx>
+						<Body />
 						<Plx
 							style={{'z-index': '10'}}
 							parallaxData={movingName}
 							animateWhenNotInViewport={true}>
 							<Sidewaze> Stephen Bondor </Sidewaze>
 						</Plx>
-						<Plx
-							parallaxData={portfolioData}
-							animateWhenNotInViewport={true}>
-							<Portfolio />
-						</Plx>
+						<Portfolio />
 						<Footer />
 					</>
 				)}

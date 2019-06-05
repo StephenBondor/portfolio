@@ -18,7 +18,6 @@ const StyledFooter = styled.div`
 	width: 100vw;
 	height: ${(1 - 0.618) * 100}vh;
 	min-height: 300px;
-
 	background: ${colors.foreground};
 `;
 
@@ -35,10 +34,14 @@ const StyledPicContainer = styled.img`
 	width: 200px;
 	height: 200px;
 	margin: 40px;
+
+	transition: all 0.3s ease-in-out;
+	&:hover {
+		transform: scale(1.02);
+	}
 `;
 
 const StyledContact = styled.div`
-	/* border: 1px solid blue; */
 	color: ${colors.textOnFG};
 	font-size: 2.6rem;
 	margin-right: 40px;
@@ -60,14 +63,12 @@ const Copyright = styled.div`
 	color: ${colors.warning};
 	margin-bottom: 20px;
 	font-size: 1.6rem;
-	/* margin-left: 30px; */
 `;
 
 const Footer = () => {
 	return (
 		<StyledFooter>
-			<div> </div>
-			{/* #empty div */}
+			<div>{/* #empty div for correct flexbox targeting*/}</div>
 			<StyledFooterContent>
 				<StyledPicContainer src={Headshot} alt='headshot' />
 				<StyledContact>
@@ -75,7 +76,7 @@ const Footer = () => {
 						href='https://stephenbondor.netlify.com/'
 						target='_blank'
 						rel='noopener noreferrer'>
-						Blog
+						Blog{' '}
 					</StyledLink>
 					|{' '}
 					<StyledLink
