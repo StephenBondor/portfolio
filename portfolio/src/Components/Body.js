@@ -1,6 +1,7 @@
 import React from 'react';
 
 //-- Components --//
+import Plx from 'react-plx';
 
 //-- Styles --//
 import styled from 'styled-components';
@@ -16,18 +17,41 @@ const StyledBody = styled.div`
 	align-items: center;
 	height: 100vh;
 	width: 100vw;
-	padding-right: 40px;
 `;
 
 const StyledIntro = styled.div`
+	display: flex;
+	flex-direction: column;
 	font-size: 4rem;
 	line-height: 6.5rem;
-	display: inline;
-	white-space: pre-wrap;
+	width: 61.8%;
+	max-width: 700px;
+	white-space: nowrap;
+`;
+
+const Normal1 = styled.div`
+	/* align-self: flex-start; */
 `;
 
 const Bold = styled.span`
 	font-weight: bold;
+	margin-left: 20%;
+`;
+
+const Normal2 = styled.div`
+	align-self: flex-end;
+	/* add a media query here to change to center when width gets wider than frame */
+`;
+
+const Medium = styled.span`
+	margin-top: 6.5rem;
+	margin-left: 20%;
+	font-size: 3rem;
+`;
+
+const Small = styled.span`
+	font-size: 1.7rem;
+	margin-left: 45%;
 `;
 
 const Pointer = styled.div`
@@ -42,29 +66,16 @@ const Pointer = styled.div`
 	}
 `;
 
-const Medium = styled.span`
-	font-size: 3rem;
-`;
-
-const Small = styled.span`
-	font-size: 1.7rem;
-`;
-
 const Body = () => {
 	return (
 		<StyledBody>
 			{/* empty div to target the Flex box correctly */}
 			<div />
 			<StyledIntro>
-				Oh Hai! <br />
-				{'	'}
+				<Normal1>Oh Hai!</Normal1>
 				<Bold>I'm Bondor </Bold>
-				<br />
-				{'		'}a full-stack developer <br /> <br />
-				<Medium>
-					{'	'}Nice to meet you! <br />
-				</Medium>
-				{'			'}
+				<Normal2>a full-stack developer</Normal2>
+				<Medium>Nice to meet you!</Medium>
 				<Small>(Awesome name, right?)</Small>
 			</StyledIntro>
 			<Pointer

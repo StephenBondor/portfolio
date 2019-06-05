@@ -176,7 +176,8 @@ const Portfolio = () => {
 					</a>{' '}
 					)<br />
 				</Medium>{' '}
-				{'	'}React, Styled-Components, Recursion <br />
+				{'	'}React, Styled-Components, Recursion, Pure-CSS animation,
+				React-PLX <br />
 				<Medium>
 					Blog (Front-End only): ({' '}
 					<a
@@ -196,10 +197,6 @@ const Portfolio = () => {
 				</Medium>{' '}
 				{'	'}React, Styled-Components, Recursion <br />
 				<br />
-				{/* <Bold>
-					Education <br />
-				</Bold>
-				<Medium>Buidl Bootcamp, Lambda School, USC, NYU</Medium> */}
 			</StyledIntro>
 		</StyledPortfolio>
 	);
