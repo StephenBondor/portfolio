@@ -44,23 +44,15 @@ const Medium = styled.span`
 	font-size: 2.1rem;
 `;
 
-const Small = styled.span`
-	font-size: 1.7rem;
-`;
-
-const Sidewaze = styled.div`
-	position: absolute;
-	transform: rotate(-90deg);
-	white-space: nowrap;
-	font-size: 8rem;
-	right: 56%;
-	font-weight: bold;
-`;
-
 const Portfolio = () => {
 	return (
 		<StyledPortfolio>
-			<Sidewaze> Stephen Bondor </Sidewaze>
+			{/* <Plx
+				// className='StickyText'
+				parallaxData={movingName}
+				animateWhenNotInViewport={true}>
+				<Sidewaze> Stephen Bondor </Sidewaze>
+			</Plx> */}
 			<StyledIntro>
 				<Bold>
 					Objective Mission and Passion <br />
@@ -74,7 +66,8 @@ const Portfolio = () => {
 					Skills <br />
 				</Bold>
 				Refactoring | Documentation | Business logic | Team Management |
-				Project Management | Communication | Design <br /> <br />
+				Project Management | Communication | Design | Architecture{' '}
+				<br /> <br />
 				<Bold>
 					Stack <br />
 				</Bold>
@@ -130,7 +123,7 @@ const Portfolio = () => {
 					)
 					<br />
 				</Medium>{' '}
-				{'	'}Documentation, RESTful API, Node, Auth, JWT, MySQL, Knex{' '}
+				{'	'}Documentation, RESTful API, Node, OAuth, JWT, MySQL, Knex{' '}
 				<br />
 				<Medium>
 					Meme Battler (Back-End Only): ({' '}
@@ -171,7 +164,7 @@ const Portfolio = () => {
 				{'	'}React, Redux, Styled-Components <br />
 				<Medium>
 					Portfolio (Front-End only): ({' '}
-					<a href='' target='_blank' rel='noopener noreferrer'>
+					<a href='#page' target='_blank' rel='noopener noreferrer'>
 						Deploy
 					</a>{' '}
 					|{' '}
@@ -183,7 +176,8 @@ const Portfolio = () => {
 					</a>{' '}
 					)<br />
 				</Medium>{' '}
-				{'	'}React, Styled-Components, Recursion <br />
+				{'	'}React, Styled-Components, Recursion, Pure-CSS animation,
+				React-PLX <br />
 				<Medium>
 					Blog (Front-End only): ({' '}
 					<a
@@ -203,10 +197,6 @@ const Portfolio = () => {
 				</Medium>{' '}
 				{'	'}React, Styled-Components, Recursion <br />
 				<br />
-				<Bold>
-					Education <br />
-				</Bold>
-				<Medium>Buidl Bootcamp, Lambda School, USC, NYU</Medium>
 			</StyledIntro>
 		</StyledPortfolio>
 	);
