@@ -12,11 +12,12 @@ import Headshot from '../headshot.png';
 
 const StyledFooter = styled.div`
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	flex-direction: column;
 	align-items: center;
 	width: 100vw;
 	height: ${(1 - 0.618) * 100}vh;
+	min-height: 300px;
 
 	background: ${colors.foreground};
 `;
@@ -48,7 +49,7 @@ const StyledLink = styled.a`
 		color: ${colors.textOnFG};
 	}
 	&:visited {
-		color: ${colors.textOnBG};
+		color: ${colors.inactive};
 	}
 	&:hover {
 		color: ${colors.hoverColor};
@@ -65,6 +66,8 @@ const Copyright = styled.div`
 const Footer = () => {
 	return (
 		<StyledFooter>
+			<div> </div>
+			{/* #empty div */}
 			<StyledFooterContent>
 				<StyledPicContainer src={Headshot} alt='headshot' />
 				<StyledContact>

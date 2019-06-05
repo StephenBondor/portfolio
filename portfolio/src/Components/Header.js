@@ -194,7 +194,7 @@ const Header = () => {
 					</Warning>
 					<Alert>
 						The yes flag has been set. Default paramaters will be
-						pre-loaded, including training on leanring how to learn,
+						pre-loaded, including training on learning how to learn,
 						to automatically answer “I can do that, and if I can’t,
 						I can learn it".
 					</Alert>{' '}
@@ -206,15 +206,18 @@ const Header = () => {
 					leadership, team-work, planning, coordination,
 					hecking-cool): <br />
 					<Warning>question</Warning> technologies (<br />
-					{'	'}HTML, <br />
-					{'	'}CSS, <br />
-					{'	'}Animation, <br />
+					{'	'}Git, <br />
 					{'	'}JavaScript, <br />
+					{'	'}Python, <br />
+					{'	'}C, <br />
+					{'	'}UI/UX, <br />
 					{'	'}React, <br />
+					{'	'}Responsive Design, <br />
+					{'	'}CSS, <br />
 					{'	'}Styled-Components, <br />
 					{'	'}MUI, <br />
-					{'	'}Responsive Design, <br />
-					{'	'}UI/UX, <br />
+					{'	'}Animation, <br />
+					{'	'}HTML, <br />
 					{'	'}Redux, <br />
 					{'	'}Node, <br />
 					{'	'}GraphQL, <br />
@@ -224,9 +227,7 @@ const Header = () => {
 					{'	'}RDBMS, <br />
 					{'	'}SQL, <br />
 					{'	'}JWT, <br />
-					{'	'}RESTful API, <br />
-					{'	'}Python, <br />
-					{'	'}Git): <br /> <br />
+					{'	'}RESTful API): <br /> <br />
 					<Warning>compiling…</Warning> <br /> <br />
 				</Booting>
 				<StillBootingBoarder>
