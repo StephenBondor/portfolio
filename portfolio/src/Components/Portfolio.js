@@ -1,6 +1,7 @@
 import React from 'react';
 
 //-- Components --//
+import Plx from 'react-plx';
 
 //-- Styles --//
 import styled from 'styled-components';
@@ -31,8 +32,9 @@ const StyledIntro = styled.div`
 	display: inline;
 	position: relative;
 	white-space: pre-wrap;
-	max-width: 800px;
-	padding-left: 150px;
+	max-width: 850px;
+	padding-left: 200px;
+	/* border: 1px solid red; */
 `;
 
 const Bold = styled.span`
@@ -44,15 +46,50 @@ const Medium = styled.span`
 	font-size: 2.1rem;
 `;
 
+const Sidewaze = styled.div`
+	position: absolute;
+	transform: rotate(-90deg);
+	white-space: nowrap;
+	font-size: 8rem;
+	right: 68%;
+	bottom: 2vh;
+	font-weight: bold;
+`;
+
+const movingName = [
+	{
+		start: '#SB-Prl',
+		startOffset: '0vh',
+		end: 'self',
+		endOffset: '50vh',
+		properties: [
+			{
+				startValue: 50,
+				endValue: 0,
+				property: 'translateY',
+				unit: 'vh'
+			}
+		]
+	},
+	{
+		start: 'self',
+		startOffset: '50vh',
+		end: 'self',
+		endOffset: '150vh',
+		properties: [
+			{
+				startValue: 0,
+				endValue: -50,
+				property: 'translateY',
+				unit: 'vh'
+			}
+		]
+	}
+];
+
 const Portfolio = () => {
 	return (
-		<StyledPortfolio>
-			{/* <Plx
-				// className='StickyText'
-				parallaxData={movingName}
-				animateWhenNotInViewport={true}>
-				<Sidewaze> Stephen Bondor </Sidewaze>
-			</Plx> */}
+		<StyledPortfolio id='SB-Prl'>
 			<StyledIntro>
 				<Bold>
 					Objective Mission and Passion <br />
@@ -75,6 +112,12 @@ const Portfolio = () => {
 				Styled - Components | MUI | Responsive Design | UI / UX | Redux
 				| Node | GraphQL | Apollo | Prisma | Gatsby | RDBMS | SQL | JWT
 				| RESTful API | Git <br /> <br />
+				<Plx
+					style={{'z-index': '10'}}
+					parallaxData={movingName}
+					animateWhenNotInViewport={true}>
+					<Sidewaze> Stephen Bondor </Sidewaze>
+				</Plx>
 				<Bold>
 					Projects <br />
 				</Bold>

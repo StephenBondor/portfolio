@@ -76,8 +76,8 @@ const Footer = () => {
 						href='https://stephenbondor.netlify.com/'
 						target='_blank'
 						rel='noopener noreferrer'>
-						Blog{' '}
-					</StyledLink>
+						Blog
+					</StyledLink>{' '}
 					|{' '}
 					<StyledLink
 						href='https://www.linkedin.com/in/stephenbondor/'

@@ -58,10 +58,14 @@ const Pointer = styled.div`
 	margin: 0 auto;
 	height: 3rem;
 	width: 26px;
+	transition: all 0.3s ease-in-out;
 	svg {
+		width: 26px;
+		height: 26px;
 		fill: ${colors.text};
 	}
 	&:hover {
+		transform: scale(1.25);
 		cursor: pointer;
 	}
 `;
@@ -69,7 +73,7 @@ const Pointer = styled.div`
 const textData = [
 	{
 		start: 'self',
-		duration: '20vh',
+		duration: '25vh',
 		easing: 'easeInOutSine',
 		properties: [
 			{
@@ -83,7 +87,7 @@ const textData = [
 	{
 		start: 'self',
 		startOffset: '10vh',
-		duration: '20vh',
+		duration: '25vh',
 		easing: 'easeInOutSine',
 		properties: [
 			{
