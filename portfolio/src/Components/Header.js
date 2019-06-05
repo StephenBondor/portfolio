@@ -140,11 +140,14 @@ const Pointer = styled.div`
 	margin: 0 auto;
 	height: 3rem;
 	opacity: 0;
-	width: 26px;
+	transition: all 0.3s ease-in-out;
 	svg {
+		width: 26px;
+		height: 26px;
 		fill: ${colors.textOnFG};
 	}
 	&:hover {
+		transform: scale(1.25);
 		cursor: pointer;
 	}
 
