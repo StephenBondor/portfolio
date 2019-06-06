@@ -34,7 +34,6 @@ const StyledIntro = styled.div`
 	white-space: pre-wrap;
 	max-width: 850px;
 	padding-left: 200px;
-	/* border: 1px solid red; */
 `;
 
 const Bold = styled.span`
@@ -113,7 +112,7 @@ const Portfolio = () => {
 				| Node | GraphQL | Apollo | Prisma | Gatsby | RDBMS | SQL | JWT
 				| RESTful API | Git <br /> <br />
 				<Plx
-					style={{'z-index': '10'}}
+					style={{zindex: '10'}}
 					parallaxData={movingName}
 					animateWhenNotInViewport={true}>
 					<Sidewaze> Stephen Bondor </Sidewaze>
