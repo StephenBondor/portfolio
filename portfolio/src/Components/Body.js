@@ -16,6 +16,7 @@ const StyledBody = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	height: 100vh;
+	min-height: 400px;
 	width: 100vw;
 `;
 
@@ -70,7 +71,7 @@ const Pointer = styled.div`
 	}
 `;
 
-const textData = [
+let textData = [
 	{
 		start: 'self',
 		duration: '25vh',
@@ -100,52 +101,41 @@ const textData = [
 	}
 ];
 
-const Body = () => {
+const StyledPlx = styled(Plx).attrs(() => ({
+	parallaxData: textData,
+	animateWhenNotInViewport: 'true'
+}))``;
+
+const Body = props => {
+	if (props.playedBefore) textData = [];
+
 	return (
 		<StyledBody>
 			{/* empty div to target the Flex box correctly */}
 			<div />
 			<StyledIntro>
 				<Normal1>
-					<Plx
-						parallaxData={textData}
-						animateWhenNotInViewport={true}>
-						Oh Hai!
-					</Plx>
+					<StyledPlx>Oh Hai!</StyledPlx>
 				</Normal1>
 				<Bold>
-					<Plx
-						parallaxData={textData}
-						animateWhenNotInViewport={true}>
-						I'm Bondor
-					</Plx>
+					<StyledPlx>I'm Bondor</StyledPlx>
 				</Bold>
 				<Normal2>
-					<Plx
-						parallaxData={textData}
-						animateWhenNotInViewport={true}>
-						a full-stack developer
-					</Plx>
+					<StyledPlx>a full-stack developer</StyledPlx>
 				</Normal2>
 				<Medium>
-					<Plx
-						parallaxData={textData}
-						animateWhenNotInViewport={true}>
-						Nice to meet you!
-					</Plx>
+					<StyledPlx>Nice to meet you!</StyledPlx>
 				</Medium>
 				<Small>
-					<Plx
-						parallaxData={textData}
-						animateWhenNotInViewport={true}>
-						(Awesome name, right?)
-					</Plx>
+					<StyledPlx>(Awesome name, right?)</StyledPlx>
 				</Small>
 			</StyledIntro>
 			<Pointer
 				onClick={() =>
 					window.scrollTo({
-						top: window.innerHeight * 2 - 30,
+						top:
+							window.innerHeight * (!props.playedBefore ? 2 : 1) -
+							40,
 						left: 0,
 						behavior: 'smooth'
 					})

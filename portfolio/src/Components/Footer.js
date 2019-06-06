@@ -17,8 +17,8 @@ const StyledFooter = styled.div`
 	align-items: center;
 	width: 100vw;
 	height: ${(1 - 0.618) * 100}vh;
-	min-height: 300px;
-	background: ${colors.foreground};
+	min-height: 350px;
+	background: linear-gradient(${colors.foreground}, ${colors.alert});
 `;
 
 const StyledFooterContent = styled.div`
@@ -65,7 +65,26 @@ const Copyright = styled.div`
 	font-size: 1.6rem;
 `;
 
+const Intro = styled.span`
+	text-decoration: underline;
+	a {
+		&:link {
+			color: ${colors.warning};
+		}
+		&:visited {
+			color: ${colors.hoverColor};
+		}
+		&:hover {
+			color: ${colors.hoverColor};
+		}
+	}
+`;
+
 const Footer = () => {
+	const dropIt = () => {
+		localStorage.removeItem('alreadyPlayed');
+	};
+
 	return (
 		<StyledFooter>
 			<div>{/* #empty div for correct flexbox targeting*/}</div>
@@ -94,7 +113,20 @@ const Footer = () => {
 					</StyledLink>{' '}
 				</StyledContact>
 			</StyledFooterContent>
-			<Copyright> © Copyright Stephen Bondor 2019 </Copyright>
+			<Copyright>
+				{' '}
+				© Copyright Stephen Bondor 2019 •{' '}
+				<Intro
+					onClick={() => {
+						dropIt();
+					}}>
+					<a
+						href={`${process.env.REACT_APP_API_URL}`}
+						alt='Watch the intro again!'>
+						I'm here for that sweet intro
+					</a>
+				</Intro>
+			</Copyright>
 		</StyledFooter>
 	);
 };

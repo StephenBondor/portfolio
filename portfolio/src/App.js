@@ -21,22 +21,36 @@ const AppContainer = styled.div`
 
 const App = () => {
 	const [display, setDisplay] = useState(false);
+	const [stored, setStorage] = useState(false);
+	const [playedBefore, setPlayed] = useState(false);
 
 	useEffect(() => {
 		setTimeout(() => setDisplay(true), 11000);
-	});
+		if (!localStorage.getItem('alreadyPlayed')) {
+			localStorage.setItem('alreadyPlayed', true);
+			setStorage(true); // notify State we have set LS
+		} else if (!stored) setPlayed(true); // we have played this before
+	}, [stored, playedBefore]);
+
+	const EntireSite = (
+		<>
+			<Body playedBefore={playedBefore} />
+			<Portfolio />
+			<Footer />
+		</>
+	);
 
 	return (
 		<>
 			<GlobalStyle />
 			<AppContainer>
-				<Header />
-				{display && (
+				{!playedBefore ? (
 					<>
-						<Body />
-						<Portfolio />
-						<Footer />
+						{stored && <Header />}
+						{display && EntireSite}
 					</>
+				) : (
+					EntireSite
 				)}
 			</AppContainer>
 		</>
