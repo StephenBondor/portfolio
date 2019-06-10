@@ -26,6 +26,13 @@ const StyledFooterContent = styled.div`
 	justify-content: center;
 	align-items: center;
 	margin-top: 30px;
+	position: relative;
+
+	/* border: 1px solid green; */
+
+	@media (max-width: 500px) {
+		flex-direction: column;
+	}
 `;
 
 const StyledPicContainer = styled.img`
@@ -35,6 +42,12 @@ const StyledPicContainer = styled.img`
 	height: 200px;
 	margin: 40px;
 
+	@media (max-width: 500px) {
+		position: absolute;
+		top: -155px;
+		margin: 0 auto;
+	}
+
 	transition: all 0.3s ease-in-out;
 	&:hover {
 		transform: scale(1.02);
@@ -42,9 +55,35 @@ const StyledPicContainer = styled.img`
 `;
 
 const StyledContact = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
 	color: ${colors.textOnFG};
 	font-size: 2.6rem;
 	margin-right: 40px;
+	min-height: 200px;
+
+	/* border: 1px solid blue; */
+	@media (max-width: 500px) {
+		margin-left: 40px;
+		align-items: center;
+	}
+`;
+
+const StyledName = styled.div`
+	@media (max-width: 500px) {
+		margin-top: 40px;
+		text-align: center;
+	}
+`;
+
+const StyledLocation = styled.div`
+	font-size: 1.6rem;
+`;
+
+const StyledLinks = styled.div`
+	font-size: 2rem;
 `;
 
 const StyledLink = styled.a`
@@ -63,6 +102,10 @@ const Copyright = styled.div`
 	color: ${colors.warning};
 	margin-bottom: 20px;
 	font-size: 1.6rem;
+	text-align: center;
+	@media (max-width: 500px) {
+		max-width: 250px;
+	}
 `;
 
 const Intro = styled.span`
@@ -91,26 +134,30 @@ const Footer = () => {
 			<StyledFooterContent>
 				<StyledPicContainer src={Headshot} alt='headshot' />
 				<StyledContact>
-					<StyledLink
-						href='https://stephenbondor.netlify.com/'
-						target='_blank'
-						rel='noopener noreferrer'>
-						Blog
-					</StyledLink>{' '}
-					|{' '}
-					<StyledLink
-						href='https://www.linkedin.com/in/stephenbondor/'
-						target='_blank'
-						rel='noopener noreferrer'>
-						LinkedIn
-					</StyledLink>{' '}
-					|{' '}
-					<StyledLink
-						href='https://github.com/StephenBondor'
-						target='_blank'
-						rel='noopener noreferrer'>
-						GitHub
-					</StyledLink>{' '}
+					<StyledName>Stephen Bondor, Developer</StyledName>
+					<StyledLocation>Los Angeles</StyledLocation>
+					<StyledLinks>
+						<StyledLink
+							href='https://stephenbondor.netlify.com/'
+							target='_blank'
+							rel='noopener noreferrer'>
+							Blog
+						</StyledLink>{' '}
+						|{' '}
+						<StyledLink
+							href='https://www.linkedin.com/in/stephenbondor/'
+							target='_blank'
+							rel='noopener noreferrer'>
+							LinkedIn
+						</StyledLink>{' '}
+						|{' '}
+						<StyledLink
+							href='https://github.com/StephenBondor'
+							target='_blank'
+							rel='noopener noreferrer'>
+							GitHub
+						</StyledLink>{' '}
+					</StyledLinks>
 				</StyledContact>
 			</StyledFooterContent>
 			<Copyright>
