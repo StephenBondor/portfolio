@@ -21,7 +21,7 @@ const StyledHeader = styled.header`
 	justify-content: flex-end;
 	align-items: left;
 
-	position: ${props => props.position};
+	position: static;
 	bottom: 0;
 
 	font-family: ${TerminalFont};
@@ -164,9 +164,8 @@ const Pointer = styled.div`
 `;
 
 const Header = () => {
-	const [position, setPosition] = useState('fixed');
-	const [updated, setUpdated] = useState(false);
 	const animationEndRef = useRef(null);
+	const [updated, setUpdated] = useState(false);
 
 	const scrollToBottom = () => {
 		animationEndRef.current.scrollIntoView({
@@ -177,17 +176,17 @@ const Header = () => {
 
 	useLayoutEffect(() => {
 		if (!updated) {
-			setTimeout(() => {
+			let counter = 0;
+			let i = setInterval(() => {
 				scrollToBottom();
-				setPosition('static');
-				scrollToBottom();
-			}, 10000);
+				if (++counter > 100) clearInterval(i);
+			}, 100);
 			setUpdated(true);
 		}
 	}, [updated]);
 
 	return (
-		<StyledHeader position={position}>
+		<StyledHeader>
 			<P>
 				<Typing>~$init-new-dev -y </Typing>
 				<Booting>
@@ -246,15 +245,12 @@ const Header = () => {
 				</Booted>
 			</P>
 			<Pointer
-				ref={animationEndRef}
 				onClick={() =>
-					window.scrollTo({
-						top: window.innerHeight,
-						left: 0,
+					animationEndRef.current.scrollIntoView({
 						behavior: 'smooth'
 					})
 				}>
-				<svg>
+				<svg ref={animationEndRef}>
 					<path d='M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z' />
 				</svg>
 			</Pointer>

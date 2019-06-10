@@ -12,7 +12,7 @@ import {css} from 'styled-components';
 
     const BtmContentStyles = styled.div`
         margin-top: 2%;
-    
+
         ${mediaQueryFor.lgDevice`
            	margin-top: 4%
         `}

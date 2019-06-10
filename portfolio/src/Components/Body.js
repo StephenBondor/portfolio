@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 
 //-- Components --//
 import Plx from 'react-plx';
@@ -16,8 +16,22 @@ const StyledBody = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	height: 100vh;
-	min-height: 400px;
+	min-height: 568px;
 	width: 100vw;
+	min-width: 320px;
+	opacity: 0;
+
+	animation: boot 1.25s forwards;
+	@keyframes boot {
+		from {
+			opacity: 0;
+			transform: scale(0.85);
+		}
+		to {
+			opacity: 100;
+			transform: scale(1);
+		}
+	}
 `;
 
 const StyledIntro = styled.div`
@@ -37,22 +51,38 @@ const Normal1 = styled.div`
 const Bold = styled.div`
 	font-weight: bold;
 	margin-left: 20%;
+	@media (max-width: 460px) {
+		margin-left: 0%;
+	}
 `;
 
 const Normal2 = styled.div`
 	align-self: flex-end;
-	/* add a media query here to change to center when width gets wider than frame */
+
+	@media (max-width: 460px) {
+		white-space: pre-line;
+	}
+	@media (max-width: 600px) {
+		align-self: center;
+	}
 `;
 
 const Medium = styled.div`
 	margin-top: 6.5rem;
 	margin-left: 20%;
 	font-size: 3rem;
+	@media (max-width: 460px) {
+		margin-left: 0%;
+		white-space: pre-line;
+	}
 `;
 
 const Small = styled.div`
 	font-size: 1.7rem;
 	margin-left: 45%;
+	@media (max-width: 460px) {
+		margin-left: 0%;
+	}
 `;
 
 const Pointer = styled.div`
@@ -71,24 +101,43 @@ const Pointer = styled.div`
 	}
 `;
 
+// https://codesandbox.io/embed/v64l2l12y7?fontsize=14 <-- code sandbox on wtf these do
+// docs: https://github.com/Stanko/react-plx
+// let textData = [
+// 	{
+// 		start: 'self',
+// 		duration: '25vh',
+// 		easing: 'easeInOutSine',
+// 		properties: [
+// 			{
+// 				startValue: 100,
+// 				endValue: 50,
+// 				unit: 'vh',
+// 				property: 'translateY'
+// 			}
+// 		]
+// 	},
+// 	{
+// 		start: 'self',
+// 		startOffset: '10vh',
+// 		duration: '25vh',
+// 		easing: 'easeInOutSine',
+// 		properties: [
+// 			{
+// 				startValue: 50,
+// 				endValue: 0,
+// 				unit: 'vh',
+// 				property: 'translateY'
+// 			}
+// 		]
+// 	}
+// ];
 let textData = [
 	{
 		start: 'self',
-		duration: '25vh',
-		easing: 'easeInOutSine',
-		properties: [
-			{
-				startValue: 100,
-				endValue: 50,
-				unit: 'vh',
-				property: 'translateY'
-			}
-		]
-	},
-	{
-		start: 'self',
-		startOffset: '10vh',
-		duration: '25vh',
+		startOffset: '0vh',
+		end: 'self',
+		endOffset: '25vh',
 		easing: 'easeInOutSine',
 		properties: [
 			{
@@ -98,16 +147,32 @@ let textData = [
 				property: 'translateY'
 			}
 		]
+	},
+	{
+		start: 'self',
+		startOffset: '75vh',
+		end: 'self',
+		endOffset: '100vh',
+		easing: 'easeInOutSine',
+		properties: [
+			{
+				startValue: 0,
+				endValue: -50,
+				unit: 'vh',
+				property: 'translateY'
+			}
+		]
 	}
 ];
 
 const StyledPlx = styled(Plx).attrs(() => ({
 	parallaxData: textData,
-	animateWhenNotInViewport: 'true'
+	animateWhenNotInViewport: true
 }))``;
 
 const Body = props => {
-	if (props.playedBefore) textData = [];
+	const arrow2Ref = useRef(null);
+	// if (props.playedBefore) textData = [];
 
 	return (
 		<StyledBody>
@@ -132,15 +197,11 @@ const Body = props => {
 			</StyledIntro>
 			<Pointer
 				onClick={() =>
-					window.scrollTo({
-						top:
-							window.innerHeight * (!props.playedBefore ? 2 : 1) -
-							40,
-						left: 0,
+					arrow2Ref.current.scrollIntoView({
 						behavior: 'smooth'
 					})
 				}>
-				<svg>
+				<svg ref={arrow2Ref}>
 					<path d='M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z' />
 				</svg>
 			</Pointer>
