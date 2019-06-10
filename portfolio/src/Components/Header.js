@@ -5,7 +5,6 @@ import React, {useState, useRef, useLayoutEffect} from 'react';
 //-- Styles --//
 import styled from 'styled-components';
 import {colors} from '../styles/Colors';
-// import mediaQueryFor from '../styles/MediaQueries';
 import {TerminalFont} from '../styles/Font';
 
 //-- Assets --//
@@ -49,13 +48,13 @@ const B = styled.span`
 // Animation source files: https://css-tricks.com/snippets/css/typewriter-effect/
 // Doing all this animation was impossible without: https://css-tricks.com/almanac/properties/a/animation/
 const Typing = styled.div`
-	overflow: hidden;
 	width: 18ch;
+	overflow: hidden;
 	border-right: 1ch solid ${colors.active};
 	white-space: nowrap;
+
 	animation: typing 1.5s steps(16, end),
 		blink-caret 1s 2.5s step-end forwards 1;
-
 	@keyframes typing {
 		from {
 			width: 0;
@@ -78,8 +77,8 @@ const Typing = styled.div`
 const Booting = styled.div`
 	overflow: hidden;
 	height: 0;
-	animation: booting 0.25s steps(37, end) 4s forwards;
 
+	animation: booting 0.25s steps(37, end) 4s forwards;
 	@keyframes booting {
 		from {
 			height: 0;
@@ -92,9 +91,9 @@ const Booting = styled.div`
 
 const StillBootingBoarder = styled.div`
 	width: 20ch;
-	animation: stillbootingboarder 0.1s 4s forwards;
 	border-bottom: 1px solid ${colors.foreground};
 
+	animation: stillbootingboarder 0.1s 4s forwards;
 	@keyframes stillbootingboarder {
 		from {
 			border-bottom: ${colors.foreground};
@@ -106,11 +105,11 @@ const StillBootingBoarder = styled.div`
 `;
 
 const StillBooting = styled.div`
+	width: 0px;
 	overflow: hidden;
 	color: ${colors.active};
-	width: 0px;
-	animation: stillbooting 5s steps(20, end) 4s forwards;
 
+	animation: stillbooting 5s steps(20, end) 4s forwards;
 	@keyframes stillbooting {
 		from {
 			width: 0px;
@@ -122,10 +121,10 @@ const StillBooting = styled.div`
 `;
 
 const Booted = styled.div`
-	overflow: hidden;
 	height: 0px;
-	animation: booted 0.75s steps(2, end) 10s forwards;
+	overflow: hidden;
 
+	animation: booted 0.75s steps(2, end) 10s forwards;
 	@keyframes booted {
 		from {
 			height: 0px;
@@ -137,22 +136,24 @@ const Booted = styled.div`
 `;
 
 const Pointer = styled.div`
-	margin: 0 auto;
 	height: 3rem;
+	margin: 0 auto;
 	opacity: 0;
+
 	transition: all 0.3s ease-in-out;
+
 	svg {
 		width: 26px;
 		height: 26px;
 		fill: ${colors.textOnFG};
 	}
+
 	&:hover {
 		transform: scale(1.25);
 		cursor: pointer;
 	}
 
 	animation: arrowbooted 0.75s 11s forwards;
-
 	@keyframes arrowbooted {
 		from {
 			opacity: 0;

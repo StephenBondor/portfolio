@@ -6,7 +6,6 @@ import Plx from 'react-plx';
 //-- Styles --//
 import styled from 'styled-components';
 import {colors} from '../styles/Colors';
-// import mediaQueryFor from '../styles/MediaQueries';
 
 //-- Assets --//
 
@@ -15,10 +14,12 @@ const StyledBody = styled.div`
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+
 	height: 100vh;
 	min-height: 568px;
 	width: 100vw;
 	min-width: 320px;
+
 	opacity: 0;
 
 	animation: boot 1.25s forwards;
@@ -37,10 +38,12 @@ const StyledBody = styled.div`
 const StyledIntro = styled.div`
 	display: flex;
 	flex-direction: column;
-	font-size: 4rem;
-	line-height: 6.5rem;
+
 	width: 61.8%;
 	max-width: 700px;
+
+	font-size: 4rem;
+	line-height: 6.5rem;
 	white-space: nowrap;
 `;
 
@@ -51,6 +54,7 @@ const Normal1 = styled.div`
 const Bold = styled.div`
 	font-weight: bold;
 	margin-left: 20%;
+
 	@media (max-width: 460px) {
 		margin-left: 0%;
 	}
@@ -70,7 +74,9 @@ const Normal2 = styled.div`
 const Medium = styled.div`
 	margin-top: 6.5rem;
 	margin-left: 20%;
+
 	font-size: 3rem;
+
 	@media (max-width: 460px) {
 		margin-left: 0%;
 		white-space: pre-line;
@@ -78,23 +84,29 @@ const Medium = styled.div`
 `;
 
 const Small = styled.div`
-	font-size: 1.7rem;
 	margin-left: 45%;
+
+	font-size: 1.7rem;
+
 	@media (max-width: 460px) {
 		margin-left: 0%;
 	}
 `;
 
 const Pointer = styled.div`
-	margin: 0 auto;
 	height: 3rem;
 	width: 26px;
+
+	margin: 0 auto;
+
 	transition: all 0.3s ease-in-out;
+
 	svg {
 		width: 26px;
 		height: 26px;
 		fill: ${colors.text};
 	}
+
 	&:hover {
 		transform: scale(1.25);
 		cursor: pointer;
@@ -103,6 +115,9 @@ const Pointer = styled.div`
 
 // https://codesandbox.io/embed/v64l2l12y7?fontsize=14 <-- code sandbox on wtf these do
 // docs: https://github.com/Stanko/react-plx
+//
+
+// Alternative textData values for animations
 // let textData = [
 // 	{
 // 		start: 'self',
@@ -132,6 +147,7 @@ const Pointer = styled.div`
 // 		]
 // 	}
 // ];
+
 let textData = [
 	{
 		start: 'self',
@@ -172,7 +188,7 @@ const StyledPlx = styled(Plx).attrs(() => ({
 
 const Body = props => {
 	const arrow2Ref = useRef(null);
-	// if (props.playedBefore) textData = [];
+	// if (props.playedBefore) textData = []; // alternative animation
 
 	return (
 		<StyledBody>
