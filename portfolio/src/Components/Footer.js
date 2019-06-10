@@ -5,7 +5,6 @@ import React from 'react';
 //-- Styles --//
 import styled from 'styled-components';
 import {colors} from '../styles/Colors';
-// import mediaQueryFor from '../styles/MediaQueries';
 
 //-- Assets --//
 import Headshot from '../headshot.png';
@@ -15,9 +14,11 @@ const StyledFooter = styled.div`
 	justify-content: space-between;
 	flex-direction: column;
 	align-items: center;
+
 	width: 100vw;
 	height: ${(1 - 0.618) * 100}vh;
 	min-height: 350px;
+
 	background: linear-gradient(${colors.foreground}, ${colors.alert});
 `;
 
@@ -25,10 +26,10 @@ const StyledFooterContent = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top: 30px;
+
 	position: relative;
 
-	/* border: 1px solid green; */
+	margin-top: 30px;
 
 	@media (max-width: 500px) {
 		flex-direction: column;
@@ -36,15 +37,17 @@ const StyledFooterContent = styled.div`
 `;
 
 const StyledPicContainer = styled.img`
-	border: 10px solid ${colors.active};
-	border-radius: 50%;
 	width: 200px;
 	height: 200px;
 	margin: 40px;
 
+	border: 10px solid ${colors.active};
+	border-radius: 50%;
+
 	@media (max-width: 500px) {
 		position: absolute;
 		top: -155px;
+
 		margin: 0 auto;
 	}
 
@@ -59,12 +62,12 @@ const StyledContact = styled.div`
 	flex-direction: column;
 	justify-content: center;
 
+	margin-right: 40px;
+
 	color: ${colors.textOnFG};
 	font-size: 2.6rem;
-	margin-right: 40px;
 	min-height: 200px;
 
-	/* border: 1px solid blue; */
 	@media (max-width: 500px) {
 		margin-left: 40px;
 		align-items: center;
@@ -99,10 +102,12 @@ const StyledLink = styled.a`
 `;
 
 const Copyright = styled.div`
-	color: ${colors.warning};
 	margin-bottom: 20px;
+
+	color: ${colors.warning};
 	font-size: 1.6rem;
 	text-align: center;
+
 	@media (max-width: 500px) {
 		max-width: 250px;
 	}

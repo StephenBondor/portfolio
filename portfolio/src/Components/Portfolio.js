@@ -6,7 +6,6 @@ import Plx from 'react-plx';
 //-- Styles --//
 import styled from 'styled-components';
 import {colors} from '../styles/Colors';
-// import mediaQueryFor from '../styles/MediaQueries';
 
 //-- Assets --//
 
@@ -18,13 +17,15 @@ const StyledPortfolio = styled.div`
 	width: 100vw;
 	min-height: 100vh;
 
+	border-top: 10px solid ${colors.active};
+
 	padding-top: 40px;
 	padding-bottom: 60px;
 
 	background: ${colors.textOnFG};
-	border-top: 10px solid ${colors.active};
 	font-size: 4rem;
 	line-height: 6.5rem;
+
 	@media (max-width: 500px) {
 		padding-bottom: 150px;
 	}
@@ -37,8 +38,8 @@ const StyledPlx = styled(Plx)`
 
 	width: 10%;
 	min-width: 100px;
-	max-height: 900px;
 	height: 50vh;
+	max-height: 900px;
 
 	@media (max-width: 500px) {
 		display: none;
@@ -47,22 +48,26 @@ const StyledPlx = styled(Plx)`
 
 const Sidewaze = styled.div`
 	transform: rotate(-90deg);
+
 	white-space: nowrap;
 	font-size: 8rem;
 	font-weight: bold;
 	line-height: 100px;
+
 	@media (max-width: 500px) {
 		display: none;
 	}
 `;
 
 const StyledIntro = styled.div`
-	font-size: 1.6rem;
-	line-height: 2.6rem;
 	display: inline;
-	white-space: pre-wrap;
+
 	max-width: 800px;
 	padding: 0 40px;
+
+	white-space: pre-wrap;
+	font-size: 1.6rem;
+	line-height: 2.6rem;
 `;
 
 const Bold = styled.div`
@@ -72,6 +77,7 @@ const Bold = styled.div`
 
 const Medium = styled.div`
 	font-size: 2.1rem;
+
 	@media (max-width: 460px) {
 		margin: 20px 0;
 	}
@@ -113,7 +119,7 @@ let movingName = [
 ];
 
 const Portfolio = () => {
-	// movingName = [];
+	// movingName = []; // trouble shooting
 	return (
 		<StyledPortfolio id='SB-Prl'>
 			<StyledPlx

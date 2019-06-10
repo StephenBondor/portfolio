@@ -11,11 +11,12 @@ import styled from 'styled-components';
 import {GlobalStyle} from './styles/GlobalStyles';
 
 const AppContainer = styled.div`
-	margin: 0px auto;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
+
+	margin: 0px auto;
 	width: 100%;
 `;
 
