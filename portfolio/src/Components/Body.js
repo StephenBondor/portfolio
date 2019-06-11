@@ -16,10 +16,15 @@ const StyledBody = styled.div`
 	align-items: center;
 
 	height: 100vh;
-	min-height: 568px;
+	min-height: 650px;
 	width: 100vw;
 	min-width: 320px;
 
+	@media (max-width: 460px) {
+		padding-top: 70px;
+	}
+
+	/* border: 1px solid red; */
 	opacity: 0;
 
 	animation: boot 1.25s forwards;
@@ -89,6 +94,10 @@ const Small = styled.div`
 	font-size: 1.7rem;
 
 	@media (max-width: 460px) {
+		margin-bottom: 60px;
+	}
+
+	@media (max-width: 460px) {
 		margin-left: 0%;
 	}
 `;
@@ -151,7 +160,7 @@ const Pointer = styled.div`
 let textData = [
 	{
 		start: 'self',
-		startOffset: '0vh',
+		startOffset: '-25vh',
 		end: 'self',
 		endOffset: '25vh',
 		easing: 'easeInOutSine',
@@ -168,7 +177,8 @@ let textData = [
 		start: 'self',
 		startOffset: '75vh',
 		end: 'self',
-		endOffset: '100vh',
+		endOffset: '120vh',
+		// duration: '25vh',
 		easing: 'easeInOutSine',
 		properties: [
 			{
