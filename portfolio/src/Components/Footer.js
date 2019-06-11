@@ -18,6 +18,7 @@ const StyledFooter = styled.div`
 	width: 100vw;
 	height: ${(1 - 0.618) * 100}vh;
 	min-height: 350px;
+	max-height: 450px;
 
 	background: linear-gradient(${colors.foreground}, ${colors.alert});
 `;

@@ -41,7 +41,7 @@ const P = styled.div`
 	white-space: pre-wrap;
 `;
 
-const B = styled.span`
+const B = styled.div`
 	font-weight: bold;
 `;
 
@@ -191,7 +191,7 @@ const Header = () => {
 			<P>
 				<Typing>~$init-new-dev -y </Typing>
 				<Booting>
-					<B>make developer v1.13.0</B> <br />
+					<B>make developer v1.13.0</B>
 					<Warning>
 						warning: dangerously effective developer!{' '}
 					</Warning>
@@ -209,28 +209,28 @@ const Header = () => {
 					leadership, team-work, planning, coordination,
 					hecking-cool): <br />
 					<Warning>question</Warning> technologies (<br />
-					{'	'}Git, <br />
-					{'	'}JavaScript, <br />
-					{'	'}Python, <br />
-					{'	'}C, <br />
-					{'	'}UI/UX, <br />
-					{'	'}React, <br />
-					{'	'}Responsive Design, <br />
-					{'	'}CSS, <br />
-					{'	'}Styled-Components, <br />
-					{'	'}MUI, <br />
-					{'	'}Animation, <br />
-					{'	'}HTML, <br />
-					{'	'}Redux, <br />
-					{'	'}Node, <br />
-					{'	'}GraphQL, <br />
-					{'	'}Apollo, <br />
-					{'	'}Prisma, <br />
-					{'	'}Gatsby, <br />
-					{'	'}RDBMS, <br />
-					{'	'}SQL, <br />
-					{'	'}JWT, <br />
-					{'	'}RESTful API): <br /> <br />
+					{'  '}Git, <br />
+					{'  '}JavaScript, <br />
+					{'  '}Python, <br />
+					{'  '}C, <br />
+					{'  '}UI/UX, <br />
+					{'  '}React, <br />
+					{'  '}Responsive Design, <br />
+					{'  '}CSS, <br />
+					{'  '}Styled-Components, <br />
+					{'  '}MUI, <br />
+					{'  '}Animation, <br />
+					{'  '}HTML, <br />
+					{'  '}Redux, <br />
+					{'  '}Node, <br />
+					{'  '}GraphQL, <br />
+					{'  '}Apollo, <br />
+					{'  '}Prisma, <br />
+					{'  '}Gatsby, <br />
+					{'  '}RDBMS, <br />
+					{'  '}SQL, <br />
+					{'  '}JWT, <br />
+					{'  '}RESTful API): <br /> <br />
 					<Warning>compiling…</Warning> <br /> <br />
 				</Booting>
 				<StillBootingBoarder>
