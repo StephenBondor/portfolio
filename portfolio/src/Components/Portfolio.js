@@ -268,7 +268,7 @@ const Portfolio = () => {
 					</a>{' '}
 					)
 				</Medium>
-				<Detail>React, Styled-Components, Recursion</Detail>
+				<Detail>React, Styled-Components, Gatsby, GraphQL</Detail>
 			</StyledIntro>
 		</StyledPortfolio>
 	);
