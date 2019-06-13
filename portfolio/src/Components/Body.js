@@ -178,7 +178,6 @@ let textData = [
 		startOffset: '75vh',
 		end: 'self',
 		endOffset: '120vh',
-		// duration: '25vh',
 		easing: 'easeInOutSine',
 		properties: [
 			{
