@@ -180,8 +180,8 @@ const Header = () => {
 			let counter = 0;
 			let i = setInterval(() => {
 				scrollToBottom();
-				if (++counter > 101) clearInterval(i);
-			}, 100);
+				if (++counter > 11) clearInterval(i);
+			}, 1000);
 			setUpdated(true);
 		}
 	}, [updated]);
