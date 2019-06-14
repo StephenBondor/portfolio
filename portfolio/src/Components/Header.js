@@ -133,6 +133,18 @@ const Booted = styled.div`
 			height: 100%;
 		}
 	}
+	${Alert} {
+		animation: pulse 2s ease-in-out 1s infinite alternate;
+
+		@keyframes pulse {
+			from {
+				color: ${colors.alert};
+			}
+			to {
+				color: ${colors.textOnFG};
+			}
+		}
+	}
 `;
 
 const Pointer = styled.div`
