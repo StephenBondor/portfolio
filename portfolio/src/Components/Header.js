@@ -170,7 +170,7 @@ const Header = () => {
 
 	const scrollToBottom = () => {
 		animationEndRef.current.scrollIntoView({
-			behavior: 'smooth',
+			// behavior: 'smooth',
 			block: 'end'
 		});
 	};
