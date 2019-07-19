@@ -129,11 +129,7 @@ const Intro = styled.span`
 	}
 `;
 
-const Footer = () => {
-	const dropIt = () => {
-		localStorage.removeItem('alreadyPlayed');
-	};
-
+const Footer = props => {
 	return (
 		<StyledFooter>
 			<div>{/* #empty div for correct flexbox targeting*/}</div>
@@ -171,7 +167,7 @@ const Footer = () => {
 				© Copyright Stephen Bondor 2019 •{' '}
 				<Intro
 					onClick={() => {
-						dropIt();
+						props.dropIt();
 					}}>
 					<a
 						href={`${process.env.REACT_APP_API_URL}`}

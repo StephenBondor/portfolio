@@ -33,11 +33,15 @@ const App = () => {
 		} else if (!stored) setPlayed(true); // we have played this before
 	}, [stored, playedBefore]);
 
+	const dropIt = () => {
+		localStorage.removeItem('alreadyPlayed');
+	};
+
 	const EntireSite = (
 		<>
-			<Body playedBefore={playedBefore} />
+			<Body playedBefore={playedBefore} dropIt={dropIt} />
 			<Portfolio />
-			<Footer />
+			<Footer dropIt={dropIt} />
 		</>
 	);
 
@@ -51,7 +55,7 @@ const App = () => {
 						{display && EntireSite}
 					</>
 				) : (
-					EntireSite
+					<>{EntireSite}</>
 				)}
 			</AppContainer>
 		</>

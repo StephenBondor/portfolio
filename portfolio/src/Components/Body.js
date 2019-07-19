@@ -20,10 +20,6 @@ const StyledBody = styled.div`
 	width: 100vw;
 	min-width: 320px;
 
-	@media (max-width: 460px) {
-		padding-top: 70px;
-	}
-
 	/* border: 1px solid red; */
 	opacity: 0;
 
@@ -50,6 +46,10 @@ const StyledIntro = styled.div`
 	font-size: 4rem;
 	line-height: 6.5rem;
 	white-space: nowrap;
+
+	@media (max-width: 460px) {
+		margin-top: 70px;
+	}
 `;
 
 const Normal1 = styled.div`
@@ -195,14 +195,45 @@ const StyledPlx = styled(Plx).attrs(() => ({
 	animateWhenNotInViewport: true
 }))``;
 
+const WatchAgain = styled.span`
+	/* margin: 20px; */
+	position: fixed;
+	@media (max-width: 460px) {
+		margin: 0px;
+	}
+
+	transform: translate(0, -200px);
+	animation: dropDown 0.75s ease-out 0.75s forwards;
+
+	@keyframes dropDown {
+		from {
+			transform: translate(0, -200px);
+		}
+		to {
+			transform: translate(0, 0px);
+		}
+	}
+`;
+
 const Body = props => {
 	const arrow2Ref = useRef(null);
 	// if (props.playedBefore) textData = []; // alternative animation
 
 	return (
 		<StyledBody>
-			{/* empty div to target the Flex box correctly */}
-			<div />
+			{props.playedBefore && (
+				<WatchAgain
+					onClick={() => {
+						props.dropIt();
+					}}>
+					<a
+						href={`${process.env.REACT_APP_API_URL}`}
+						alt='Watch the intro again!'>
+						But, that sweet intro?
+					</a>
+				</WatchAgain>
+			)}
+			<div>{/* empty div to target flex box correctly*/}</div>
 			<StyledIntro>
 				<Normal1>
 					<StyledPlx>Oh Hai!</StyledPlx>
