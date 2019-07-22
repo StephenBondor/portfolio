@@ -5,6 +5,8 @@ import Header from './Components/Header';
 import Body from './Components/Body';
 import Footer from './Components/Footer';
 import Portfolio from './Components/Portfolio';
+// Should add an About section
+// Should add a button at the top when loading for the second time
 
 //-- Styles --//
 import styled from 'styled-components';
