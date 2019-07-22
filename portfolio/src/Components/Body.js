@@ -1,7 +1,6 @@
 import React, {useRef} from 'react';
 
 //-- Components --//
-import Plx from 'react-plx';
 
 //-- Styles --//
 import styled from 'styled-components';
@@ -34,6 +33,7 @@ const StyledBody = styled.div`
 			transform: scale(1);
 		}
 	}
+	clip-path: inset(0px 0px 0px 0px);
 `;
 
 const StyledIntro = styled.div`
@@ -108,99 +108,34 @@ const Pointer = styled.div`
 
 	margin: 0 auto;
 
-	transition: all 0.3s ease-in-out;
-
 	svg {
 		width: 26px;
 		height: 26px;
 		fill: ${colors.text};
+
+		transition: all 0.3s ease-in-out;
+		&:hover {
+			transform: scale(1.25);
+			cursor: pointer;
+		}
 	}
 
-	&:hover {
-		transform: scale(1.25);
-		cursor: pointer;
+	transition: all 0.3s ease-in-out;
+	transform: translate(0, 200px);
+	animation: glideUp 0.75s ease-out 0.75s forwards;
+
+	@keyframes glideUp {
+		from {
+			transform: translate(0, 200px);
+		}
+		to {
+			transform: translate(0, 0px);
+		}
 	}
 `;
 
-// https://codesandbox.io/embed/v64l2l12y7?fontsize=14 <-- code sandbox on wtf these do
-// docs: https://github.com/Stanko/react-plx
-//
-
-// Alternative textData values for animations
-// let textData = [
-// 	{
-// 		start: 'self',
-// 		duration: '25vh',
-// 		easing: 'easeInOutSine',
-// 		properties: [
-// 			{
-// 				startValue: 100,
-// 				endValue: 50,
-// 				unit: 'vh',
-// 				property: 'translateY'
-// 			}
-// 		]
-// 	},
-// 	{
-// 		start: 'self',
-// 		startOffset: '10vh',
-// 		duration: '25vh',
-// 		easing: 'easeInOutSine',
-// 		properties: [
-// 			{
-// 				startValue: 50,
-// 				endValue: 0,
-// 				unit: 'vh',
-// 				property: 'translateY'
-// 			}
-// 		]
-// 	}
-// ];
-
-let textData = [
-	{
-		start: 'self',
-		startOffset: '-25vh',
-		end: 'self',
-		endOffset: '25vh',
-		easing: 'easeInOutSine',
-		properties: [
-			{
-				startValue: 50,
-				endValue: 0,
-				unit: 'vh',
-				property: 'translateY'
-			}
-		]
-	},
-	{
-		start: 'self',
-		startOffset: '75vh',
-		end: 'self',
-		endOffset: '120vh',
-		easing: 'easeInOutSine',
-		properties: [
-			{
-				startValue: 0,
-				endValue: -50,
-				unit: 'vh',
-				property: 'translateY'
-			}
-		]
-	}
-];
-
-const StyledPlx = styled(Plx).attrs(() => ({
-	parallaxData: textData,
-	animateWhenNotInViewport: true
-}))``;
-
 const WatchAgain = styled.span`
-	/* margin: 20px; */
-	position: fixed;
-	@media (max-width: 460px) {
-		margin: 0px;
-	}
+	margin: 10px;
 
 	transform: translate(0, -200px);
 	animation: dropDown 0.75s ease-out 0.75s forwards;
@@ -217,11 +152,10 @@ const WatchAgain = styled.span`
 
 const Body = props => {
 	const arrow2Ref = useRef(null);
-	// if (props.playedBefore) textData = []; // alternative animation
 
 	return (
 		<StyledBody>
-			{props.playedBefore && (
+			{props.playedBefore ? (
 				<WatchAgain
 					onClick={() => {
 						props.dropIt();
@@ -232,24 +166,15 @@ const Body = props => {
 						But, that sweet intro?
 					</a>
 				</WatchAgain>
+			) : (
+				<div>{/* empty div to target flex box correctly*/}</div>
 			)}
-			<div>{/* empty div to target flex box correctly*/}</div>
 			<StyledIntro>
-				<Normal1>
-					<StyledPlx>Oh Hai!</StyledPlx>
-				</Normal1>
-				<Bold>
-					<StyledPlx>I'm Bondor</StyledPlx>
-				</Bold>
-				<Normal2>
-					<StyledPlx>a full-stack developer</StyledPlx>
-				</Normal2>
-				<Medium>
-					<StyledPlx>Nice to meet you!</StyledPlx>
-				</Medium>
-				<Small>
-					<StyledPlx>(Awesome name, right?)</StyledPlx>
-				</Small>
+				<Normal1>Oh Hai!</Normal1>
+				<Bold>I'm Bondor</Bold>
+				<Normal2>a full-stack developer</Normal2>
+				<Medium>Nice to meet you!</Medium>
+				<Small>(Awesome name, right?)</Small>
 			</StyledIntro>
 			<Pointer
 				onClick={() =>
