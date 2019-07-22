@@ -1,27 +1,21 @@
-import React from 'react';
+import React, {useRef} from 'react';
 
 //-- Components --//
-import Plx from 'react-plx';
 
 //-- Styles --//
 import styled from 'styled-components';
 import {colors} from '../styles/Colors';
 
 //-- Assets --//
-
 const StyledPortfolio = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
 	width: 100vw;
 	min-height: 100vh;
-
 	border-top: 10px solid ${colors.active};
-
 	padding-top: 40px;
 	padding-bottom: 60px;
-
 	background: ${colors.textOnFG};
 	font-size: 4rem;
 	line-height: 6.5rem;
@@ -31,10 +25,17 @@ const StyledPortfolio = styled.div`
 	}
 `;
 
-const StyledPlx = styled(Plx)`
+const StyledPlx = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: left;
+
+	/* border: 1px solid red; */
+
+	transition: all ease;
+	transform: translateY(
+		${({y, loc}) => -(y - loc + 0.25 * window.innerHeight)}px
+	);
 
 	width: 10%;
 	min-width: 100px;
@@ -46,8 +47,10 @@ const StyledPlx = styled(Plx)`
 	}
 `;
 
-const Sidewaze = styled.div`
-	transform: rotate(-90deg);
+const Sideways = styled.div`
+	transform: rotate(-90deg) translateY(-260px);
+
+	/* border: 1px solid blue; */
 
 	white-space: nowrap;
 	font-size: 8rem;
@@ -61,10 +64,8 @@ const Sidewaze = styled.div`
 
 const StyledIntro = styled.div`
 	display: inline;
-
 	max-width: 800px;
 	padding: 0 40px;
-
 	white-space: pre-wrap;
 	font-size: 1.6rem;
 	line-height: 2.6rem;
@@ -87,46 +88,16 @@ const Detail = styled.div`
 	padding-left: 40px;
 `;
 
-let movingName = [
-	{
-		start: '#SB-Prl',
-		startOffset: '0vh',
-		end: 'self',
-		endOffset: '75vh',
-		properties: [
-			{
-				startValue: 50,
-				endValue: 0,
-				property: 'translateY',
-				unit: 'vh'
-			}
-		]
-	},
-	{
-		start: 'self',
-		startOffset: '75vh',
-		end: 'self',
-		endOffset: '150vh',
-		properties: [
-			{
-				startValue: 0,
-				endValue: -50,
-				property: 'translateY',
-				unit: 'vh'
-			}
-		]
-	}
-];
+const Portfolio = props => {
+	const componentRef = useRef({});
 
-const Portfolio = () => {
-	// movingName = []; // trouble shooting
 	return (
 		<StyledPortfolio id='SB-Prl'>
 			<StyledPlx
-				style={{zindex: '10'}}
-				parallaxData={movingName}
-				animateWhenNotInViewport={true}>
-				<Sidewaze> Stephen Bondor </Sidewaze>
+				y={props.y()}
+				ref={componentRef}
+				loc={componentRef.current.offsetTop}>
+				<Sideways>Stephen Bondor </Sideways>
 			</StyledPlx>
 			<StyledIntro>
 				<Bold>Objective Mission and Passion</Bold>
@@ -150,7 +121,7 @@ const Portfolio = () => {
 
 				<Bold>Projects</Bold>
 				<Medium>
-					Arc: ({' '}
+					Arc [Front End Developer]: ({' '}
 					<a
 						href='https://www.youtube.com/watch?v=XI_-0z4J-n4'
 						target='_blank'
@@ -185,7 +156,7 @@ const Portfolio = () => {
 					MongoDB
 				</Detail>
 				<Medium>
-					Refugee Stories [Back-End Only]: ({' '}
+					Refugee Stories [Back-End Developer]: ({' '}
 					<a
 						href='https://github.com/team-awesome-s-refugee-stories/backend'
 						target='_blank'
@@ -198,7 +169,7 @@ const Portfolio = () => {
 					Documentation, RESTful API, Node, OAuth, JWT, MySQL, Knex
 				</Detail>
 				<Medium>
-					Meme Battler [Back-End Only]: ({' '}
+					Meme Battler [Back-End Developer]: ({' '}
 					<a
 						href='https://us1.prisma.sh/bondor-e1702b/meme-battle-api/dev?headers={"Authorization":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTkxNjYzMzQsIm5iZiI6MTU1OTE2NjMzNCwiZXhwIjoxNTU5MjUyNzM0fQ.jAziDYWva-QbfG6pdaQAoCUSpp6uljIzcPDz7nOsaVU"}'
 						target='_blank'
@@ -216,7 +187,7 @@ const Portfolio = () => {
 				</Medium>
 				<Detail>GraphQL, Prisma, Yoga, Auth, JWT </Detail>
 				<Medium>
-					HPO [Front-End Only]: ({' '}
+					HPO [Front-End Developer]: ({' '}
 					<a
 						href='https://elated-euclid-d0d69d.netlify.com'
 						target='_blank'
@@ -234,7 +205,7 @@ const Portfolio = () => {
 				</Medium>
 				<Detail>React, Redux, Styled-Components </Detail>
 				<Medium>
-					Portfolio [Front-End only]: ({' '}
+					Portfolio [Front-End Developer]: ({' '}
 					<a href='#page' target='_blank' rel='noopener noreferrer'>
 						Deploy
 					</a>{' '}
@@ -252,7 +223,7 @@ const Portfolio = () => {
 					React-PLX
 				</Detail>
 				<Medium>
-					Blog [Front-End only]: ({' '}
+					Blog [Front-End Developer]: ({' '}
 					<a
 						href='https://stephenbondor.netlify.com/'
 						target='_blank'
@@ -269,6 +240,24 @@ const Portfolio = () => {
 					)
 				</Medium>
 				<Detail>React, Styled-Components, Gatsby, GraphQL</Detail>
+				<Medium>
+					Conway's Game of Life [Front-End Developer]: ({' '}
+					<a
+						href='https://jovial-shannon-5d8778.netlify.com/?cellcount=1100&delay=1200'
+						target='_blank'
+						rel='noopener noreferrer'>
+						Deploy
+					</a>{' '}
+					|{' '}
+					<a
+						href='https://github.com/StephenBondor/game-of-life'
+						target='_blank'
+						rel='noopener noreferrer'>
+						Github
+					</a>{' '}
+					)
+				</Medium>
+				<Detail>React, Styled-Components</Detail>
 			</StyledIntro>
 		</StyledPortfolio>
 	);
