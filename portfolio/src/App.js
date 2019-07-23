@@ -55,14 +55,14 @@ const App = () => {
 
 	const EntireSite = (
 		<>
-			<Body playedBefore={playedBefore} dropIt={dropIt} y={useY} />
+			<Body playedBefore={playedBefore} dropIt={dropIt} />
 			<Portfolio y={useY} playedBefore={playedBefore} />
 			<Footer dropIt={dropIt} />
 		</>
 	);
 
 	return (
-		<div>
+		<>
 			<GlobalStyle />
 			<AppContainer>
 				{!playedBefore ? (
@@ -74,7 +74,7 @@ const App = () => {
 					EntireSite
 				)}
 			</AppContainer>
-		</div>
+		</>
 	);
 };
 

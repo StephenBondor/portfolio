@@ -257,7 +257,7 @@ const Portfolio = props => {
 					</a>{' '}
 					)
 				</Medium>
-				<Detail>React, Styled-Components</Detail>
+				<Detail>React, Styled-Components, Canvas, Parser</Detail>
 			</StyledIntro>
 		</StyledPortfolio>
 	);
