@@ -8,6 +8,9 @@ import Greating from './Greating';
 import styled from 'styled-components';
 import {colors} from '../styles/Colors';
 
+//-- Globals --//
+// const {addEventListener, removeEventListener} = window;
+
 //-- Assets --//
 
 const StyledBody = styled.div`
@@ -92,6 +95,7 @@ const WatchAgain = styled.span`
 
 const Body = ({playedBefore, dropIt}) => {
 	const arrow2Ref = useRef(null);
+
 	return (
 		<StyledBody>
 			{playedBefore ? (

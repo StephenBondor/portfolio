@@ -6,7 +6,6 @@ import Body from './Components/Body';
 import Footer from './Components/Footer';
 import Portfolio from './Components/Portfolio';
 // Should add an About section
-// Should add a button at the top when loading for the second time
 
 //-- Styles --//
 import styled from 'styled-components';
@@ -23,10 +22,10 @@ const AppContainer = styled.div`
 `;
 
 const App = () => {
+	// State management to determine if we should play the intro
 	const [display, setDisplay] = useState(false);
 	const [stored, setStorage] = useState(false);
 	const [playedBefore, setPlayed] = useState(false);
-
 	useEffect(() => {
 		setTimeout(() => setDisplay(true), 11000);
 		if (!localStorage.getItem('alreadyPlayed')) {

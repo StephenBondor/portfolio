@@ -52,6 +52,7 @@ const Detail = styled.div`
 	padding-left: 40px;
 `;
 
+
 const Portfolio = () => {
 	return (
 		<StyledPortfolio id='SB-Prl'>
