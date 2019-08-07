@@ -1,7 +1,7 @@
 import React from 'react';
-// {useRef, useState, useLayoutEffect}
+
 //-- Components --//
-import ParallaxName from './ParalaxName';
+import ParallaxName from './ParallaxName';
 
 //-- Styles --//
 import styled from 'styled-components';
@@ -52,8 +52,8 @@ const Detail = styled.div`
 	padding-left: 40px;
 `;
 
-const Portfolio = props => {
-	// console.log('rendered portfolio');
+
+const Portfolio = () => {
 	return (
 		<StyledPortfolio id='SB-Prl'>
 			<ParallaxName />

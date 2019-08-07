@@ -11,8 +11,6 @@ import Portfolio from './Components/Portfolio';
 import styled from 'styled-components';
 import {GlobalStyle} from './styles/GlobalStyles';
 
-//-- Globals --//
-
 const AppContainer = styled.div`
 	display: flex;
 	justify-content: center;
