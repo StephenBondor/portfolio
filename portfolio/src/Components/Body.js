@@ -6,6 +6,9 @@ import React, {useRef} from 'react';
 import styled from 'styled-components';
 import {colors} from '../styles/Colors';
 
+//-- Globals --//
+// const {addEventListener, removeEventListener} = window;
+
 //-- Assets --//
 
 const StyledBody = styled.div`
@@ -152,7 +155,7 @@ const WatchAgain = styled.span`
 
 const Body = props => {
 	const arrow2Ref = useRef(null);
-
+	// console.log('rendered body');
 	return (
 		<StyledBody>
 			{props.playedBefore ? (
