@@ -34,7 +34,7 @@ const Sideways = styled.div`
 	}
 `;
 
-// test
+// test 2
 
 const ParallaxName = () => {
 	const componentRef = useRef({});
