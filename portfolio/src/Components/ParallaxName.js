@@ -34,9 +34,10 @@ const Sideways = styled.div`
 	}
 `;
 
+// test
+
 const ParallaxName = () => {
 	const componentRef = useRef({});
-
 	Parallax(componentRef, -1, 0.25 * window.innerHeight);
 	return (
 		<StyledPlx ref={componentRef}>
