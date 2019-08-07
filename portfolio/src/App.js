@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useLayoutEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 
 //-- Components --//
 import Header from './Components/Header';
@@ -12,9 +12,6 @@ import Portfolio from './Components/Portfolio';
 import styled from 'styled-components';
 import {GlobalStyle} from './styles/GlobalStyles';
 
-//-- Globals --//
-const {addEventListener, removeEventListener} = window;
-
 const AppContainer = styled.div`
 	display: flex;
 	justify-content: center;
@@ -24,21 +21,6 @@ const AppContainer = styled.div`
 	margin: 0px auto;
 	width: 100%;
 `;
-
-// These functions, getY and useY, are used to change state of Y according to the scrollY offset when it changes.
-// They are needed to perform Parallax is JS. Admittedly, it's probably smoother to do it natively in
-// CSS. However, the elements that the Parallax applies to will introduce some serious confusion
-// in the logic and future maintainability. Additionally,they remove the need to rely on modules
-// that are almost all not maintained.
-const getY = () => window.scrollY;
-const useY = () => {
-	const [y, setY] = useState(getY());
-	useLayoutEffect(() => {
-		addEventListener('scroll', () => setY(getY()));
-		return () => removeEventListener('scroll', () => setY(getY()));
-	}, []);
-	return y;
-};
 
 const App = () => {
 	const [display, setDisplay] = useState(false);
@@ -58,7 +40,7 @@ const App = () => {
 	const EntireSite = (
 		<>
 			<Body playedBefore={playedBefore} dropIt={dropIt} />
-			<Portfolio y={useY} playedBefore={playedBefore} />
+			<Portfolio playedBefore={playedBefore} />
 			<Footer dropIt={dropIt} />
 		</>
 	);

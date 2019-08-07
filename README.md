@@ -2,6 +2,8 @@
 
 This is my personal portfolio site!
 
+[bondor.dev](https://bondor.dev)
+
 Some of the tools and tech this site displays:
 
 -   React
@@ -13,4 +15,4 @@ Some of the tools and tech this site displays:
 -   LocalStorage
 -   Animation
     -   Vanilla CSS
-    -   React PLX library
+    -   Vanilla CSS/JS/DOM parallax effect build from scratch

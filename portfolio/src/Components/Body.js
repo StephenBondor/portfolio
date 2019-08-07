@@ -1,6 +1,8 @@
 import React, {useRef} from 'react';
 
 //-- Components --//
+// import Parallax from './Parallax';
+import Greating from './Greating';
 
 //-- Styles --//
 import styled from 'styled-components';
@@ -18,9 +20,9 @@ const StyledBody = styled.div`
 	min-height: 650px;
 	width: 100vw;
 	min-width: 320px;
+	opacity: 0;
 
 	/* border: 1px solid red; */
-	opacity: 0;
 
 	animation: boot 1.25s forwards;
 	@keyframes boot {
@@ -36,77 +38,13 @@ const StyledBody = styled.div`
 	clip-path: inset(0px 0px 0px 0px);
 `;
 
-const StyledIntro = styled.div`
-	display: flex;
-	flex-direction: column;
-
-	width: 61.8%;
-	max-width: 700px;
-
-	font-size: 4rem;
-	line-height: 6.5rem;
-	white-space: nowrap;
-
-	@media (max-width: 460px) {
-		margin-top: 70px;
-	}
-`;
-
-const Normal1 = styled.div`
-	/* align-self: flex-start; */
-`;
-
-const Bold = styled.div`
-	font-weight: bold;
-	margin-left: 20%;
-
-	@media (max-width: 460px) {
-		margin-left: 0%;
-	}
-`;
-
-const Normal2 = styled.div`
-	align-self: flex-end;
-
-	@media (max-width: 460px) {
-		white-space: pre-line;
-	}
-	@media (max-width: 600px) {
-		align-self: center;
-	}
-`;
-
-const Medium = styled.div`
-	margin-top: 6.5rem;
-	margin-left: 20%;
-
-	font-size: 3rem;
-
-	@media (max-width: 460px) {
-		margin-left: 0%;
-		white-space: pre-line;
-	}
-`;
-
-const Small = styled.div`
-	margin-left: 45%;
-
-	font-size: 1.7rem;
-
-	@media (max-width: 460px) {
-		margin-bottom: 60px;
-	}
-
-	@media (max-width: 460px) {
-		margin-left: 0%;
-	}
-`;
-
 const Pointer = styled.div`
 	height: 3rem;
 	width: 26px;
 
 	margin: 0 auto;
+
+	/* border: 1px solid red; */
 
 	svg {
 		width: 26px;
@@ -135,10 +73,12 @@ const Pointer = styled.div`
 `;
 
 const WatchAgain = styled.span`
-	margin: 10px;
+	padding-top: 10px;
 
 	transform: translate(0, -200px);
 	animation: dropDown 0.75s ease-out 0.75s forwards;
+
+	/* border: 1px solid red; */
 
 	@keyframes dropDown {
 		from {
@@ -150,15 +90,14 @@ const WatchAgain = styled.span`
 	}
 `;
 
-const Body = props => {
+const Body = ({playedBefore, dropIt}) => {
 	const arrow2Ref = useRef(null);
-
 	return (
 		<StyledBody>
-			{props.playedBefore ? (
+			{playedBefore ? (
 				<WatchAgain
 					onClick={() => {
-						props.dropIt();
+						dropIt();
 					}}>
 					<a
 						href={`${process.env.REACT_APP_API_URL}`}
@@ -169,13 +108,7 @@ const Body = props => {
 			) : (
 				<div>{/* empty div to target flex box correctly*/}</div>
 			)}
-			<StyledIntro>
-				<Normal1>Oh Hai!</Normal1>
-				<Bold>I'm Bondor</Bold>
-				<Normal2>a full-stack developer</Normal2>
-				<Medium>Nice to meet you!</Medium>
-				<Small>(Awesome name, right?)</Small>
-			</StyledIntro>
+			<Greating playedBefore={playedBefore} />
 			<Pointer
 				onClick={() =>
 					arrow2Ref.current.scrollIntoView({
