@@ -58,6 +58,7 @@ const ParallaxName = () => {
 
 export default ParallaxName;
 
+
 // This function setY, is used to change transformY offest according
 // to the scrollY offset when it changes. It is needed to perform
 // Parallax is JS. Admittedly, it's probably smoother to do it natively in
@@ -69,3 +70,4 @@ export default ParallaxName;
 // else to build another library... which, having solved the problem, has
 // again fallen into disrepair. A vicious cycle. This way is as clean and
 // easy as it gets, that I have found
+

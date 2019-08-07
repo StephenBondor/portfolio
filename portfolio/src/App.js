@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useLayoutEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 
 //-- Components --//
 import Header from './Components/Header';
@@ -6,14 +6,12 @@ import Body from './Components/Body';
 import Footer from './Components/Footer';
 import Portfolio from './Components/Portfolio';
 // Should add an About section
-// Should add a button at the top when loading for the second time
 
 //-- Styles --//
 import styled from 'styled-components';
 import {GlobalStyle} from './styles/GlobalStyles';
 
 //-- Globals --//
-const {addEventListener, removeEventListener} = window;
 
 const AppContainer = styled.div`
 	display: flex;
@@ -25,26 +23,11 @@ const AppContainer = styled.div`
 	width: 100%;
 `;
 
-// These functions, getY and useY, are used to change state of Y according to the scrollY offset when it changes.
-// They are needed to perform Parallax is JS. Admittedly, it's probably smoother to do it natively in
-// CSS. However, the elements that the Parallax applies to will introduce some serious confusion
-// in the logic and future maintainability. Additionally,they remove the need to rely on modules
-// that are almost all not maintained.
-const getY = () => window.scrollY;
-const useY = () => {
-	const [y, setY] = useState(getY());
-	useLayoutEffect(() => {
-		addEventListener('scroll', () => setY(getY()));
-		return () => removeEventListener('scroll', () => setY(getY()));
-	}, []);
-	return y;
-};
-
 const App = () => {
+	// State management to determine if we should play the intro
 	const [display, setDisplay] = useState(false);
 	const [stored, setStorage] = useState(false);
 	const [playedBefore, setPlayed] = useState(false);
-
 	useEffect(() => {
 		setTimeout(() => setDisplay(true), 11000);
 		if (!localStorage.getItem('alreadyPlayed')) {
@@ -58,7 +41,7 @@ const App = () => {
 	const EntireSite = (
 		<>
 			<Body playedBefore={playedBefore} dropIt={dropIt} />
-			<Portfolio y={useY} playedBefore={playedBefore} />
+			<Portfolio playedBefore={playedBefore} />
 			<Footer dropIt={dropIt} />
 		</>
 	);

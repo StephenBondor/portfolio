@@ -1,6 +1,7 @@
-import React, {useRef} from 'react';
-
+import React from 'react';
+// {useRef, useState, useLayoutEffect}
 //-- Components --//
+import ParallaxName from './ParalaxName';
 
 //-- Styles --//
 import styled from 'styled-components';
@@ -22,43 +23,6 @@ const StyledPortfolio = styled.div`
 
 	@media (max-width: 500px) {
 		padding-bottom: 150px;
-	}
-`;
-
-const StyledPlx = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: left;
-
-	/* border: 1px solid red; */
-
-	transition: all ease;
-	transform: translateY(
-		${({y, loc}) => -(y - loc + 0.25 * window.innerHeight)}px
-	);
-
-	width: 10%;
-	min-width: 100px;
-	height: 50vh;
-	max-height: 900px;
-
-	@media (max-width: 500px) {
-		display: none;
-	}
-`;
-
-const Sideways = styled.div`
-	transform: rotate(-90deg) translateY(-260px);
-
-	/* border: 1px solid blue; */
-
-	white-space: nowrap;
-	font-size: 8rem;
-	font-weight: bold;
-	line-height: 100px;
-
-	@media (max-width: 500px) {
-		display: none;
 	}
 `;
 
@@ -89,16 +53,10 @@ const Detail = styled.div`
 `;
 
 const Portfolio = props => {
-	const componentRef = useRef({});
-
+	// console.log('rendered portfolio');
 	return (
 		<StyledPortfolio id='SB-Prl'>
-			<StyledPlx
-				y={props.y()}
-				ref={componentRef}
-				loc={componentRef.current.offsetTop}>
-				<Sideways>Stephen Bondor </Sideways>
-			</StyledPlx>
+			<ParallaxName />
 			<StyledIntro>
 				<Bold>Objective Mission and Passion</Bold>
 				<Medium>
