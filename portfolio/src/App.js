@@ -3,9 +3,10 @@ import React, {useState, useEffect} from 'react';
 //-- Components --//
 import Header from './Components/Header';
 import Body from './Components/Body';
-import Footer from './Components/Footer';
+import About from './Components/About';
 import Portfolio from './Components/Portfolio';
-// Should add an About section
+import Footer from './Components/Footer';
+// Should add an About section with nice pictured background!
 
 //-- Styles --//
 import styled from 'styled-components';
@@ -34,11 +35,13 @@ const App = () => {
 		} else if (!stored) setPlayed(true); // we have played this before
 	}, [stored, playedBefore]);
 
+	// drop the localStorage to force an animation play
 	const dropIt = () => localStorage.removeItem('alreadyPlayed');
 
 	const EntireSite = (
 		<>
 			<Body playedBefore={playedBefore} dropIt={dropIt} />
+			<About playedBefore={playedBefore} />
 			<Portfolio playedBefore={playedBefore} />
 			<Footer dropIt={dropIt} />
 		</>

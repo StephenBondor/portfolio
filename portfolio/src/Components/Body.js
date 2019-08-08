@@ -1,17 +1,11 @@
 import React, {useRef} from 'react';
 
 //-- Components --//
-// import Parallax from './Parallax';
 import Greating from './Greating';
 
 //-- Styles --//
 import styled from 'styled-components';
 import {colors} from '../styles/Colors';
-
-//-- Globals --//
-// const {addEventListener, removeEventListener} = window;
-
-//-- Assets --//
 
 const StyledBody = styled.div`
 	display: flex;
@@ -24,8 +18,6 @@ const StyledBody = styled.div`
 	width: 100vw;
 	min-width: 320px;
 	opacity: 0;
-
-	/* border: 1px solid red; */
 
 	animation: boot 1.25s forwards;
 	@keyframes boot {
@@ -44,10 +36,8 @@ const StyledBody = styled.div`
 const Pointer = styled.div`
 	height: 3rem;
 	width: 26px;
-
 	margin: 0 auto;
-
-	/* border: 1px solid red; */
+	z-index: 5;
 
 	svg {
 		width: 26px;
@@ -64,7 +54,6 @@ const Pointer = styled.div`
 	transition: all 0.3s ease-in-out;
 	transform: translate(0, 200px);
 	animation: glideUp 0.75s ease-out 0.75s forwards;
-
 	@keyframes glideUp {
 		from {
 			transform: translate(0, 200px);
@@ -80,9 +69,6 @@ const WatchAgain = styled.span`
 
 	transform: translate(0, -200px);
 	animation: dropDown 0.75s ease-out 0.75s forwards;
-
-	/* border: 1px solid red; */
-
 	@keyframes dropDown {
 		from {
 			transform: translate(0, -200px);
@@ -95,14 +81,10 @@ const WatchAgain = styled.span`
 
 const Body = ({playedBefore, dropIt}) => {
 	const arrow2Ref = useRef(null);
-
 	return (
 		<StyledBody>
 			{playedBefore ? (
-				<WatchAgain
-					onClick={() => {
-						dropIt();
-					}}>
+				<WatchAgain onClick={() => dropIt()}>
 					<a
 						href={`${process.env.REACT_APP_API_URL}`}
 						alt='Watch the intro again!'>

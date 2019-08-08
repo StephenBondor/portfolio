@@ -17,6 +17,8 @@ const StyledPlx = styled.div`
 	min-width: 100px;
 	height: 50vh;
 	max-height: 900px;
+
+	/* position: absolute; */
 	@media (max-width: 500px) {
 		display: none;
 	}
@@ -33,8 +35,6 @@ const Sideways = styled.div`
 		display: none;
 	}
 `;
-
-// test 3 for the love of god work
 
 const ParallaxName = () => {
 	const componentRef = useRef({});

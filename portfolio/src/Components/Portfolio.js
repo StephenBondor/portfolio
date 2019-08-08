@@ -52,7 +52,6 @@ const Detail = styled.div`
 	padding-left: 40px;
 `;
 
-
 const Portfolio = () => {
 	return (
 		<StyledPortfolio id='SB-Prl'>
@@ -79,7 +78,7 @@ const Portfolio = () => {
 
 				<Bold>Projects</Bold>
 				<Medium>
-					Arc [Front End Developer]: ({' '}
+					Arc [Front End Developer]: (
 					<a
 						href='https://www.youtube.com/watch?v=XI_-0z4J-n4'
 						target='_blank'
@@ -106,7 +105,7 @@ const Portfolio = () => {
 						target='_blank'
 						rel='noopener noreferrer'>
 						Github
-					</a>{' '}
+					</a>
 					)
 				</Medium>
 				<Detail>
@@ -114,20 +113,20 @@ const Portfolio = () => {
 					MongoDB
 				</Detail>
 				<Medium>
-					Refugee Stories [Back-End Developer]: ({' '}
+					Refugee Stories [Back-End Developer]: (
 					<a
 						href='https://github.com/team-awesome-s-refugee-stories/backend'
 						target='_blank'
 						rel='noopener noreferrer'>
 						Github
-					</a>{' '}
+					</a>
 					)
 				</Medium>
 				<Detail>
 					Documentation, RESTful API, Node, OAuth, JWT, MySQL, Knex
 				</Detail>
 				<Medium>
-					Meme Battler [Back-End Developer]: ({' '}
+					Meme Battler [Back-End Developer]: (
 					<a
 						href='https://us1.prisma.sh/bondor-e1702b/meme-battle-api/dev?headers={"Authorization":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTkxNjYzMzQsIm5iZiI6MTU1OTE2NjMzNCwiZXhwIjoxNTU5MjUyNzM0fQ.jAziDYWva-QbfG6pdaQAoCUSpp6uljIzcPDz7nOsaVU"}'
 						target='_blank'
@@ -140,12 +139,12 @@ const Portfolio = () => {
 						target='_blank'
 						rel='noopener noreferrer'>
 						Github
-					</a>{' '}
+					</a>
 					)
 				</Medium>
 				<Detail>GraphQL, Prisma, Yoga, Auth, JWT </Detail>
 				<Medium>
-					HPO [Front-End Developer]: ({' '}
+					HPO [Front-End Developer]: (
 					<a
 						href='https://elated-euclid-d0d69d.netlify.com'
 						target='_blank'
@@ -158,12 +157,12 @@ const Portfolio = () => {
 						target='_blank'
 						rel='noopener noreferrer'>
 						Github
-					</a>{' '}
+					</a>
 					)
 				</Medium>
 				<Detail>React, Redux, Styled-Components </Detail>
 				<Medium>
-					Portfolio [Front-End Developer]: ({' '}
+					Portfolio [Front-End Developer]: (
 					<a href='#page' target='_blank' rel='noopener noreferrer'>
 						Deploy
 					</a>{' '}
@@ -173,7 +172,7 @@ const Portfolio = () => {
 						target='_blank'
 						rel='noopener noreferrer'>
 						Github
-					</a>{' '}
+					</a>
 					)
 				</Medium>
 				<Detail>
@@ -181,7 +180,7 @@ const Portfolio = () => {
 					React-PLX
 				</Detail>
 				<Medium>
-					Blog [Front-End Developer]: ({' '}
+					Blog [Front-End Developer]: (
 					<a
 						href='https://stephenbondor.netlify.com/'
 						target='_blank'
@@ -194,14 +193,14 @@ const Portfolio = () => {
 						target='_blank'
 						rel='noopener noreferrer'>
 						Github
-					</a>{' '}
+					</a>
 					)
 				</Medium>
 				<Detail>React, Styled-Components, Gatsby, GraphQL</Detail>
 				<Medium>
-					Conway's Game of Life [Front-End Developer]: ({' '}
+					Conway's Game of Life [Front-End Developer]: (
 					<a
-						href='https://jovial-shannon-5d8778.netlify.com/?cellcount=1100&delay=1200'
+						href='https://jovial-shannon-5d8778.netlify.com/?cellcount=11000&delay=10'
 						target='_blank'
 						rel='noopener noreferrer'>
 						Deploy
@@ -212,7 +211,7 @@ const Portfolio = () => {
 						target='_blank'
 						rel='noopener noreferrer'>
 						Github
-					</a>{' '}
+					</a>
 					)
 				</Medium>
 				<Detail>React, Styled-Components, Canvas, Parser</Detail>

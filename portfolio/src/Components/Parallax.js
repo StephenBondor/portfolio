@@ -2,8 +2,12 @@ import {useLayoutEffect} from 'react';
 
 const {addEventListener, removeEventListener} = window;
 
-const Parallax = (componentRef, speed, offsetAdjustment) => {
-	[speed, offsetAdjustment] = [speed || -1, offsetAdjustment || 0];
+const Parallax = (componentRef, speed, offsetAdjustment, top) => {
+	[speed, offsetAdjustment, top] = [
+		speed || -1,
+		offsetAdjustment || 0,
+		top || false
+	];
 	// speed: (-) for opposite direction as scroll, between 0 and 1 for far way
 	// midPoint: .25 vertically centers midPoint
 
@@ -14,7 +18,11 @@ const Parallax = (componentRef, speed, offsetAdjustment) => {
 		const y = speed * (scrollY - offsetTop + offsetAdjustment);
 
 		// console.log(scrollY, offsetTop, offsetAdjustment, y);
-		style.setProperty('transform', `translateY(${y}px)`);
+		if (!top)
+			// style.setProperty('transform', `translateY(${Math.round(y)}px)`);
+			style.transform = `translateY(${Math.round(y)}px)`;
+		else
+			style.setProperty('top', `${Math.round(y + window.innerHeight)}px`);
 	};
 
 	useLayoutEffect(() => {
