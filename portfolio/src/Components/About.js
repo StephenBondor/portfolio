@@ -29,13 +29,14 @@ const StyledAbout = styled.div`
 
 const StyledImg = styled.div`
 	background-image: url(${BigSir});
+	clip-path: inset(0px 0px 0px 0px);
 	overflow: hidden;
 	height: 140%;
 	width: 100%;
 	background-position: center;
 	background-size: cover;
 	position: absolute;
-	z-index: -1;
+	z-index: -10;
 	@media (max-width: 460px) {
 		height: 180%;
 	}
@@ -53,7 +54,7 @@ const StyledTextBox = styled.div`
 `;
 
 const StyledTitle = styled.div`
-	z-index: 1;
+	z-index: 0;
 	color: ${colors.textOnFG};
 	font-size: 4rem;
 	font-weight: bold;
@@ -67,7 +68,6 @@ const StyledBody = styled.div`
 	max-width: ${window.innerWidth * 0.6}px;
 	line-height: 3.3rem;
 
-	/* border: 1px solid red; */
 	@media (max-width: 460px) {
 		font-size: 2.2rem;
 		max-width: none;
@@ -76,12 +76,11 @@ const StyledBody = styled.div`
 
 const About = ({playedBefore}) => {
 	const componentRef = useRef({});
+	const {innerHeight} = window;
 	Parallax(
 		componentRef,
 		0.7,
-		playedBefore
-			? 1
-			: window.innerHeight * (window.innerHeight < 600 ? 2.6 : 1.43),
+		playedBefore ? 1 : innerHeight * (innerHeight < 600 ? 2.6 : 1.43),
 		true
 	);
 	console.log('rendered');
@@ -95,12 +94,13 @@ const About = ({playedBefore}) => {
 					collaboration, and sussing-out differences tactfully on
 					teams to avoid death-by-meeting. I am passionate about
 					talking face-to-face to reach consensus quickly. In fact,
-					it's what i spent a half-decade doing in entertainment on
-					set with some of the worlds biggest (and outlandish)
-					personalities, under some of the most gurling conditions.
+					it's what I spent a half-decade doing on set in
+					entertainment, under some of the most gurling conditions on
+					earth, with some of the worlds biggest (and outlandish)
+					personalities.
 					<br />
 					<br />
-					Now, I am taking that skill to development
+					Now, I am taking that experience to development
 				</StyledBody>
 			</StyledTextBox>
 		</StyledAbout>

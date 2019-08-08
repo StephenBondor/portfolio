@@ -37,7 +37,7 @@ const Pointer = styled.div`
 	height: 3rem;
 	width: 26px;
 	margin: 0 auto;
-	z-index: 5;
+	z-index: 10;
 
 	svg {
 		width: 26px;

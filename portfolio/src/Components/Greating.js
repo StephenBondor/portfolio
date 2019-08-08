@@ -5,7 +5,6 @@ import Parallax from './Parallax';
 
 //-- Styles --//
 import styled from 'styled-components';
-// import {colors} from '../styles/Colors';
 
 const StyledIntro = styled.div`
 	display: flex;
