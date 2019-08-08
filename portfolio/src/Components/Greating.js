@@ -17,8 +17,6 @@ const StyledIntro = styled.div`
 	line-height: 6.5rem;
 	white-space: nowrap;
 
-	/* border: 1px solid red; */
-
 	@media (max-width: 460px) {
 		margin-top: ${props => (props.playedBefore ? 70 : 170)}px;
 	}
@@ -73,15 +71,11 @@ const Small = styled.div`
 `;
 const Greating = ({playedBefore}) => {
 	const hiRef = useRef({});
-
-	// This is needed to force the ref to populate after initial unpopulated render.
+	// setState is needed to force ref.current to populate after initial unpopulated render.
 	const [, setState] = useState(false);
 	useEffect(() => setState(true), []);
 
-	// console.log(hiRef.current);
-
 	Parallax(hiRef, -0.5, (playedBefore ? 1 : 0.25) * hiRef.current.offsetTop);
-
 	return (
 		<StyledIntro playedBefore={playedBefore} ref={hiRef}>
 			<Normal1>Oh Hai!</Normal1>
