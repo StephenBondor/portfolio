@@ -6,7 +6,6 @@ import Body from './Components/Body';
 import About from './Components/About';
 import Portfolio from './Components/Portfolio';
 import Footer from './Components/Footer';
-// Should add an About section with nice pictured background!
 
 //-- Styles --//
 import styled from 'styled-components';
