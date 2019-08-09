@@ -9,7 +9,8 @@ const Parallax = (componentRef, speed, offsetAdjustment, top) => {
 		top || false
 	];
 	// speed: (-) for opposite direction as scroll, between 0 and 1 for far way
-	// midPoint: .25 vertically centers midPoint
+	// offsetAdjustment: is the initial and additional offset.
+	// top: toggles where to targe the parallaxed object as a position: absolute
 
 	const setY = () => {
 		const {scrollY} = window;
@@ -17,9 +18,8 @@ const Parallax = (componentRef, speed, offsetAdjustment, top) => {
 
 		const y = speed * (scrollY - offsetTop + offsetAdjustment);
 
-		// console.log(scrollY, offsetTop, offsetAdjustment, y);
 		if (!top)
-			// style.setProperty('transform', `translateY(${Math.round(y)}px)`);
+			// both `.transform` and `.setProperty() can be used here
 			style.transform = `translateY(${Math.round(y)}px)`;
 		else
 			style.setProperty('top', `${Math.round(y + window.innerHeight)}px`);

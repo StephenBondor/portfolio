@@ -62,9 +62,6 @@ const Small = styled.div`
 
 	@media (max-width: 460px) {
 		margin-bottom: 60px;
-	}
-
-	@media (max-width: 460px) {
 		margin-left: 0%;
 	}
 `;
@@ -74,7 +71,12 @@ const Greating = ({playedBefore}) => {
 	const [, setState] = useState(false);
 	useEffect(() => setState(true), []);
 
-	Parallax(hiRef, -0.5, (playedBefore ? 1 : 0.25) * hiRef.current.offsetTop);
+	Parallax(
+		hiRef,
+		-0.5,
+		(playedBefore ? (window.innerHeight < 460 ? 5 : 1) : 0.25) *
+			hiRef.current.offsetTop
+	);
 	return (
 		<StyledIntro playedBefore={playedBefore} ref={hiRef}>
 			<Normal1>Oh Hai!</Normal1>
