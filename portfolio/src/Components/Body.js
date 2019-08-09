@@ -19,6 +19,10 @@ const StyledBody = styled.div`
 	min-width: 320px;
 	opacity: 0;
 
+	@media (max-height: 460px) {
+		min-height: 420px;
+	}
+
 	animation: boot 1.25s forwards;
 	@keyframes boot {
 		from {

@@ -40,6 +40,9 @@ const StyledImg = styled.div`
 	@media (max-width: 460px) {
 		height: 180%;
 	}
+	@media (max-height: 460px) {
+		height: 250%;
+	}
 `;
 
 const StyledTextBox = styled.div`
@@ -80,10 +83,18 @@ const About = ({playedBefore}) => {
 	Parallax(
 		componentRef,
 		0.7,
-		playedBefore ? 1 : innerHeight * (innerHeight < 600 ? 2.6 : 1.43),
+		playedBefore
+			? 1
+			: innerHeight *
+					(innerHeight < 600
+						? innerHeight < 460
+							? 4.5
+							: 2.6
+						: 1.43),
 		true
 	);
-	console.log('rendered');
+	// The logic above is nuts. There has to be a better way to simplify
+
 	return (
 		<StyledAbout>
 			<StyledImg ref={componentRef} />
